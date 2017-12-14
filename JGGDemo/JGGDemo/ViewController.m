@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "XC_JGGView.h"
+#import "UIView+Frame.h"
 
 @interface ViewController ()
 
@@ -22,9 +23,16 @@
     XC_JGGView *jggView = [[XC_JGGView alloc] init];
     jggView.OnlyOneOptionalWH = 200 ;
 
-    jggView.dataSource = (NSMutableArray *)@[@"1.png",@"1.png",@"1.png",@"1.png",@"2.png"];
+    jggView.dataSource = (NSMutableArray *)@[@"1.png",@"1.png",@"1.png",@"1.png"];
+   CGSize size = [jggView setDtasouce:jggView.dataSource.count];
+   
+    
     jggView.backgroundColor = [UIColor yellowColor];
-    jggView.frame = CGRectMake(0, 0, 200 , 200);
+    
+    jggView.x = 0 ;
+    jggView.y = 30 ;
+    jggView.height = size.height ;
+    jggView.width = size.width ;
     [self.view addSubview:jggView];
     
 }

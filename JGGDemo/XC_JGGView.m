@@ -7,8 +7,7 @@
 //
 
 #import "XC_JGGView.h"
-
-#define XCPhotoWH (self.bounds.size.width - XCPhotoMargin * 4)/3 //每个图片大小
+#define XCPhotoWH (320 - XCPhotoMargin * 4)/3 //每个图片大小
 #define XCPhotoMargin 10  //间隔
 #define XCPhotoMaxCol(count) (count==1?1:(count==4)?2:3)  //列数
 
@@ -23,7 +22,6 @@
     return self ;
 }
 
-
 -(void)setOnlyOneOptionalWH:(NSInteger)OnlyOneOptionalWH
 {
     _OnlyOneOptionalWH = OnlyOneOptionalWH;
@@ -34,6 +32,19 @@
 {
     _dataSource = dataSource ;
     [self setUI];
+}
+
+-(CGSize)setDtasouce:(NSInteger)optionsCount
+{
+    // 最大列数（一行最多有多少列）
+    int maxCols = XCPhotoMaxCol(optionsCount);
+    NSUInteger cols = (optionsCount >= maxCols)? maxCols : optionsCount;
+    CGFloat photosW = cols * XCPhotoWH + (cols + 1) * XCPhotoMargin;
+
+    // 最大函数 = （总的选项数 + 最大列数 - 1）/ 最大列数
+    NSUInteger rows = (optionsCount + maxCols - 1) / maxCols;
+    CGFloat photosH = rows * XCPhotoWH +(rows + 1)* XCPhotoMargin;
+    return CGSizeMake(photosW, photosH);
 }
 
 /**  设置UI   */
