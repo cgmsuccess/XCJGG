@@ -16,6 +16,8 @@
 		184328EE1FC81C1D00BB4D84 /* JGGDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328ED1FC81C1D00BB4D84 /* JGGDemoTests.m */; };
 		184328F91FC81C1D00BB4D84 /* JGGDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328F81FC81C1D00BB4D84 /* JGGDemoUITests.m */; };
 		184329081FC81C4500BB4D84 /* XC_JGGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184329071FC81C4500BB4D84 /* XC_JGGView.m */; };
+		187D223F1FE50EB0005C208C /* testTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187D223D1FE50EB0005C208C /* testTableViewCell.m */; };
+		187D22401FE50EB0005C208C /* testTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187D223E1FE50EB0005C208C /* testTableViewCell.xib */; };
 		F7BBDA581FE2D9D50072607B /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BBDA561FE2D9D40072607B /* UIView+Frame.m */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,9 @@
 		184328FA1FC81C1D00BB4D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		184329061FC81C4500BB4D84 /* XC_JGGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_JGGView.h; sourceTree = "<group>"; };
 		184329071FC81C4500BB4D84 /* XC_JGGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_JGGView.m; sourceTree = "<group>"; };
+		187D223C1FE50EB0005C208C /* testTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testTableViewCell.h; sourceTree = "<group>"; };
+		187D223D1FE50EB0005C208C /* testTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableViewCell.m; sourceTree = "<group>"; };
+		187D223E1FE50EB0005C208C /* testTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testTableViewCell.xib; sourceTree = "<group>"; };
 		F7BBDA561FE2D9D40072607B /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		F7BBDA571FE2D9D50072607B /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +125,9 @@
 				184328E11FC81C1D00BB4D84 /* LaunchScreen.storyboard */,
 				184328E41FC81C1D00BB4D84 /* Info.plist */,
 				184328D31FC81C1D00BB4D84 /* Supporting Files */,
+				187D223C1FE50EB0005C208C /* testTableViewCell.h */,
+				187D223D1FE50EB0005C208C /* testTableViewCell.m */,
+				187D223E1FE50EB0005C208C /* testTableViewCell.xib */,
 			);
 			path = JGGDemo;
 			sourceTree = "<group>";
@@ -258,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				184328E31FC81C1D00BB4D84 /* LaunchScreen.storyboard in Resources */,
+				187D22401FE50EB0005C208C /* testTableViewCell.xib in Resources */,
 				184328E01FC81C1D00BB4D84 /* Assets.xcassets in Resources */,
 				184328DE1FC81C1D00BB4D84 /* Main.storyboard in Resources */,
 			);
@@ -287,6 +296,7 @@
 				184329081FC81C4500BB4D84 /* XC_JGGView.m in Sources */,
 				184328DB1FC81C1D00BB4D84 /* ViewController.m in Sources */,
 				184328D81FC81C1D00BB4D84 /* AppDelegate.m in Sources */,
+				187D223F1FE50EB0005C208C /* testTableViewCell.m in Sources */,
 				F7BBDA581FE2D9D50072607B /* UIView+Frame.m in Sources */,
 				184328D51FC81C1D00BB4D84 /* main.m in Sources */,
 			);

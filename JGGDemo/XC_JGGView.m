@@ -7,9 +7,7 @@
 //
 
 #import "XC_JGGView.h"
-#define XCPhotoWH (320 - XCPhotoMargin * 4)/3 //每个图片大小
-#define XCPhotoMargin 10  //间隔
-#define XCPhotoMaxCol(count) (count==1?1:(count==4)?2:3)  //列数
+
 
 @implementation XC_JGGView
 
@@ -17,7 +15,7 @@
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-
+    
     }
     return self ;
 }
@@ -28,9 +26,12 @@
     [self layoutIfNeeded];
 }
 
+
 -(void)setDataSource:(NSMutableArray *)dataSource
 {
     _dataSource = dataSource ;
+    //避免复用问题
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self setUI];
 }
 
@@ -40,7 +41,7 @@
     int maxCols = XCPhotoMaxCol(optionsCount);
     NSUInteger cols = (optionsCount >= maxCols)? maxCols : optionsCount;
     CGFloat photosW = cols * XCPhotoWH + (cols + 1) * XCPhotoMargin;
-
+    
     // 最大函数 = （总的选项数 + 最大列数 - 1）/ 最大列数
     NSUInteger rows = (optionsCount + maxCols - 1) / maxCols;
     CGFloat photosH = rows * XCPhotoWH +(rows + 1)* XCPhotoMargin;
@@ -50,7 +51,6 @@
 /**  设置UI   */
 -(void)setUI
 {
-
     for (int i = 0; i < _dataSource.count; i ++ ) {
         UIImageView *optionsImageView = [[UIImageView alloc] init];
         optionsImageView.image = [UIImage imageNamed:_dataSource[i]];
@@ -62,6 +62,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+        
     int i = 0 ;
     // 最大列数（一行最多有多少列）
     int maxCols = XCPhotoMaxCol(self.subviews.count);

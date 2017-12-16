@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#define XCPhotoWH 40 //每个图片大小
+#define XCPhotoMargin 10  //间隔
+#define XCPhotoMaxCol(count) (count==1?1:(count==4)?2:3)  //列数
+
 @interface XC_JGGView : UIView
 
 /** 这个属性是：图片的数据源****/
