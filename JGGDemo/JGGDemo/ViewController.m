@@ -11,16 +11,11 @@
 #import "UIView+Frame.h"
 #import "testTableViewCell.h"
 
-//颜色
-#define randomColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
-#define backColor [UIColor colorWithRed:66/255.0 green:124/255.0 blue:145/255.0 alpha:1]
+#import "JGGDemoViewController.h"
 
-#define Color(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 
-#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
-
-#define MyrandomColor [UIColor colorWithRed:arc4random() % 256 / 255.0 green:arc4random() % 256 / 255.0 blue:arc4random() % 256 / 255.0 alpha:1.0f]
+NSString * const  syscell = @"syscell";
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -45,28 +40,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //url 数据源
+    [self getdata];
+ 
+    
+    [self setUI];
+}
 
-    for (int i =0; i< 20; i ++) {
-        NSMutableArray *arr = [NSMutableArray new];
-        int j = arc4random() % 8 +1 ;
-       
-        for (int n = 0; n<j; n++) {
-            [arr addObject:@"1.png"];
-        }
-        [self.dataSource addObject:arr];
-    }
-    
-    NSLog(@"%@",self.dataSource);
-    
+-(void)setUI
+{
     self.automaticallyAdjustsScrollViewInsets = NO ;
-    self.navigationController.automaticallyAdjustsScrollViewInsets = NO ;
+    
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
-    [self.tableview registerNib:[UINib nibWithNibName:@"testTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:syscell];
+}
+
+-(void)getdata
+{
+   NSArray *arr = @[@"XC_JGGView的基本使用JGGDemo",@"基本形状绘制圆形矩形三角形等JGGDemo1",];
     
+    self.dataSource = [NSMutableArray arrayWithArray:arr];
 }
 
 
+#pragma mark
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -75,28 +74,33 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    testTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.width = 320 ;
-    cell.jggview.dataSource = self.dataSource[indexPath.row];
-    cell.jggview.backgroundColor = MyrandomColor ;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:syscell];
+    cell.textLabel.text = self.dataSource[indexPath.row];
     return  cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSMutableArray *arr = self.dataSource[indexPath.row];
     
-    NSLog(@"arr.count= %d",arr.count );
-    testTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-
-     CGSize size = [cell.jggview setDtasouce:arr.count];
-    
-    return size.height ;
+    return 40  ;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    NSString *title = self.dataSource[indexPath.row];
+    
+    NSRange range = [title rangeOfString:@"JGGDemo"];
+    NSString *subTitle = [title substringToIndex:range.location]; //这个角标之前的字符串
+    NSString *subTitle1 = [title substringFromIndex:range.location];//这个角标之后的字符串
+    XCLog(@"subTitle = %@ subTitle1 = %@ ",subTitle ,subTitle1 );
+    
+    //字符串创建对象
+    NSString *ctrlTitle = [NSString stringWithFormat:@"%@ViewController",subTitle1];
+    UIViewController *vc = [NSClassFromString(ctrlTitle) new];
+    vc.title = subTitle ;
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

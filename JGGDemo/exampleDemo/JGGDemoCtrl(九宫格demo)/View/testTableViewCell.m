@@ -23,4 +23,10 @@
 }
 
 
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.height -= 10;
+    [super setFrame:frame];
+}
+
 @end

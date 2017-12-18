@@ -7,6 +7,8 @@
 //
 
 #import "XC_JGGView.h"
+#import "UIImageView+WebCache.h"
+
 
 
 @implementation XC_JGGView
@@ -23,6 +25,7 @@
 -(void)setOnlyOneOptionalWH:(NSInteger)OnlyOneOptionalWH
 {
     _OnlyOneOptionalWH = OnlyOneOptionalWH;
+
     [self layoutIfNeeded];
 }
 
@@ -32,19 +35,36 @@
     _dataSource = dataSource ;
     //避免复用问题
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+   
     [self setUI];
 }
 
+/**  设置宽高   */
 -(CGSize)setDtasouce:(NSInteger)optionsCount
 {
     // 最大列数（一行最多有多少列）
     int maxCols = XCPhotoMaxCol(optionsCount);
+
     NSUInteger cols = (optionsCount >= maxCols)? maxCols : optionsCount;
-    CGFloat photosW = cols * XCPhotoWH + (cols + 1) * XCPhotoMargin;
+
+    CGFloat photosW ;//宽
+    //判断只有一张图的时候，是否设置了宽高
+    if (self.OnlyOneOptionalWH && optionsCount == 1) {
+         photosW = cols * self.OnlyOneOptionalWH + (cols + 1) * XCPhotoMargin;
+    }else{
+    //默认情况下，没有设置宽高
+         photosW = cols * XCPhotoWH + (cols + 1) * XCPhotoMargin;
+    }
     
     // 最大函数 = （总的选项数 + 最大列数 - 1）/ 最大列数
     NSUInteger rows = (optionsCount + maxCols - 1) / maxCols;
-    CGFloat photosH = rows * XCPhotoWH +(rows + 1)* XCPhotoMargin;
+    CGFloat photosH;
+    if (self.OnlyOneOptionalWH && optionsCount == 1) {
+         photosH = rows * self.OnlyOneOptionalWH +(rows + 1)* XCPhotoMargin;
+    }else{
+        photosH = rows * XCPhotoWH +(rows + 1)* XCPhotoMargin;
+    }
+    
     return CGSizeMake(photosW, photosH);
 }
 
@@ -53,10 +73,33 @@
 {
     for (int i = 0; i < _dataSource.count; i ++ ) {
         UIImageView *optionsImageView = [[UIImageView alloc] init];
-        optionsImageView.image = [UIImage imageNamed:_dataSource[i]];
+        optionsImageView.tag = i ;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cilckOptionsImageAction:)];
+        optionsImageView.userInteractionEnabled = YES;
+        [optionsImageView addGestureRecognizer:tap];
+        
+        if ([_dataSource[i] isKindOfClass:[UIImage class]]) {
+            
+            optionsImageView.image = _dataSource[i];
+        
+        }else if([_dataSource[i] isKindOfClass:[NSString class]]){
+          
+            optionsImageView.image = [UIImage imageNamed:_dataSource[i]];
+            
+        }else if([_dataSource[i] isKindOfClass:[NSURL class]]){
+            
+            [optionsImageView sd_setImageWithURL:_dataSource[i] placeholderImage:self.placeholderImage];
+        }
         [self addSubview:optionsImageView];
     }
 }
+
+//点击选项回调
+-(void)cilckOptionsImageAction:(UITapGestureRecognizer *)tap
+{
+    self.cilckhandle(tap.view.tag , self.dataSource);
+};
+
 
 
 -(void)layoutSubviews

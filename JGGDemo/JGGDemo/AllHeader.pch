@@ -1,0 +1,38 @@
+//
+//  AllHeader.pch
+//  JGGDemo
+//
+//  Created by apple on 17/12/18.
+//  Copyright © 2017年 apple. All rights reserved.
+//
+
+#ifndef AllHeader_pch
+#define AllHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+//颜色
+#define randomColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#define backColor [UIColor colorWithRed:66/255.0 green:124/255.0 blue:145/255.0 alpha:1]
+
+#define Color(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
+
+#define MyrandomColor [UIColor colorWithRed:arc4random() % 256 / 255.0 green:arc4random() % 256 / 255.0 blue:arc4random() % 256 / 255.0 alpha:1.0f]
+
+#import "UIView+Frame.h"
+
+
+
+#ifdef DEBUG
+#define XCLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define XCLog(format, ...)
+#endif
+
+
+#endif /* AllHeader_pch */
