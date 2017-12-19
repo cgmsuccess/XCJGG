@@ -26,7 +26,6 @@
 		18102DDB1FE7CF1900AFD76A /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102DDA1FE7CF1900AFD76A /* UIView+Frame.m */; };
 		18102DE01FE7CFE600AFD76A /* XC_JGGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102DDF1FE7CFE600AFD76A /* XC_JGGView.m */; };
 		18102DE61FE7D02E00AFD76A /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102DE51FE7D02E00AFD76A /* BaseViewController.m */; };
-		18102DEE1FE7D17C00AFD76A /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102DED1FE7D17C00AFD76A /* BaseTableViewController.m */; };
 		18102DF21FE7D4D100AFD76A /* JGGDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102DF01FE7D4D100AFD76A /* JGGDemoViewController.m */; };
 		18102DF71FE7D50700AFD76A /* testTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102DF51FE7D50700AFD76A /* testTableViewCell.m */; };
 		18102DF81FE7D50700AFD76A /* testTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18102DF61FE7D50700AFD76A /* testTableViewCell.xib */; };
@@ -97,8 +96,6 @@
 		18102DDF1FE7CFE600AFD76A /* XC_JGGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_JGGView.m; sourceTree = "<group>"; };
 		18102DE41FE7D02E00AFD76A /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		18102DE51FE7D02E00AFD76A /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		18102DEC1FE7D17C00AFD76A /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		18102DED1FE7D17C00AFD76A /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		18102DEF1FE7D25900AFD76A /* AllHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllHeader.pch; sourceTree = "<group>"; };
 		18102DF01FE7D4D100AFD76A /* JGGDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGGDemoViewController.m; sourceTree = "<group>"; };
 		18102DF11FE7D4D100AFD76A /* JGGDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGGDemoViewController.h; sourceTree = "<group>"; };
@@ -254,8 +251,6 @@
 			children = (
 				18102DE41FE7D02E00AFD76A /* BaseViewController.h */,
 				18102DE51FE7D02E00AFD76A /* BaseViewController.m */,
-				18102DEC1FE7D17C00AFD76A /* BaseTableViewController.h */,
-				18102DED1FE7D17C00AFD76A /* BaseTableViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -478,7 +473,6 @@
 				18102DF71FE7D50700AFD76A /* testTableViewCell.m in Sources */,
 				18102DF21FE7D4D100AFD76A /* JGGDemoViewController.m in Sources */,
 				18102DCD1FE7CEA000AFD76A /* SDWebImageDownloaderOperation.m in Sources */,
-				18102DEE1FE7D17C00AFD76A /* BaseTableViewController.m in Sources */,
 				18102DD61FE7CEA000AFD76A /* UIView+WebCacheOperation.m in Sources */,
 				184328DB1FC81C1D00BB4D84 /* ViewController.m in Sources */,
 				18102DD01FE7CEA000AFD76A /* UIButton+WebCache.m in Sources */,
