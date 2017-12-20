@@ -29,6 +29,9 @@
 		18102DF21FE7D4D100AFD76A /* JGGDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102DF01FE7D4D100AFD76A /* JGGDemoViewController.m */; };
 		18102DF71FE7D50700AFD76A /* testTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102DF51FE7D50700AFD76A /* testTableViewCell.m */; };
 		18102DF81FE7D50700AFD76A /* testTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18102DF61FE7D50700AFD76A /* testTableViewCell.xib */; };
+		18389D001FE8BE39009DFCC1 /* JGGDemo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18389CFE1FE8BE39009DFCC1 /* JGGDemo1ViewController.m */; };
+		18389D011FE8BE39009DFCC1 /* JGGDemo1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18389CFF1FE8BE39009DFCC1 /* JGGDemo1ViewController.xib */; };
+		18389D041FE8C441009DFCC1 /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18389D021FE8C441009DFCC1 /* NSString+Helper.m */; };
 		184328D51FC81C1D00BB4D84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328D41FC81C1D00BB4D84 /* main.m */; };
 		184328D81FC81C1D00BB4D84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328D71FC81C1D00BB4D84 /* AppDelegate.m */; };
 		184328DB1FC81C1D00BB4D84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328DA1FC81C1D00BB4D84 /* ViewController.m */; };
@@ -37,6 +40,7 @@
 		184328E31FC81C1D00BB4D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184328E11FC81C1D00BB4D84 /* LaunchScreen.storyboard */; };
 		184328EE1FC81C1D00BB4D84 /* JGGDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328ED1FC81C1D00BB4D84 /* JGGDemoTests.m */; };
 		184328F91FC81C1D00BB4D84 /* JGGDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328F81FC81C1D00BB4D84 /* JGGDemoUITests.m */; };
+		1867CF951FEA072F00AE7F15 /* XC_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1867CF941FEA072F00AE7F15 /* XC_TextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +106,11 @@
 		18102DF41FE7D50700AFD76A /* testTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testTableViewCell.h; sourceTree = "<group>"; };
 		18102DF51FE7D50700AFD76A /* testTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableViewCell.m; sourceTree = "<group>"; };
 		18102DF61FE7D50700AFD76A /* testTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testTableViewCell.xib; sourceTree = "<group>"; };
+		18389CFD1FE8BE39009DFCC1 /* JGGDemo1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGGDemo1ViewController.h; sourceTree = "<group>"; };
+		18389CFE1FE8BE39009DFCC1 /* JGGDemo1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGGDemo1ViewController.m; sourceTree = "<group>"; };
+		18389CFF1FE8BE39009DFCC1 /* JGGDemo1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JGGDemo1ViewController.xib; sourceTree = "<group>"; };
+		18389D021FE8C441009DFCC1 /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
+		18389D031FE8C441009DFCC1 /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
 		184328D01FC81C1D00BB4D84 /* JGGDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGGDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184328D41FC81C1D00BB4D84 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		184328D61FC81C1D00BB4D84 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +127,8 @@
 		184328F41FC81C1D00BB4D84 /* JGGDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JGGDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		184328F81FC81C1D00BB4D84 /* JGGDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGGDemoUITests.m; sourceTree = "<group>"; };
 		184328FA1FC81C1D00BB4D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1867CF931FEA072F00AE7F15 /* XC_TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_TextView.h; sourceTree = "<group>"; };
+		1867CF941FEA072F00AE7F15 /* XC_TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_TextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +159,7 @@
 		18102DA31FE7CE5200AFD76A /* exampleDemo */ = {
 			isa = PBXGroup;
 			children = (
+				18389CFC1FE8BD4A009DFCC1 /* JGGDemo1Ctrl(输入框) */,
 				18102DE11FE7D00500AFD76A /* JGGDemoCtrl(九宫格demo) */,
 			);
 			path = exampleDemo;
@@ -213,6 +225,8 @@
 		18102DD81FE7CF1900AFD76A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				18389D021FE8C441009DFCC1 /* NSString+Helper.m */,
+				18389D031FE8C441009DFCC1 /* NSString+Helper.h */,
 				18102DD91FE7CF1900AFD76A /* UIView+Frame.h */,
 				18102DDA1FE7CF1900AFD76A /* UIView+Frame.m */,
 			);
@@ -222,6 +236,7 @@
 		18102DDC1FE7CFE600AFD76A /* XC_Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1867CF921FEA071500AE7F15 /* XC_InputView */,
 				18102DDD1FE7CFE600AFD76A /* XC_JGGView */,
 			);
 			path = XC_Tools;
@@ -263,6 +278,16 @@
 				18102DF61FE7D50700AFD76A /* testTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		18389CFC1FE8BD4A009DFCC1 /* JGGDemo1Ctrl(输入框) */ = {
+			isa = PBXGroup;
+			children = (
+				18389CFD1FE8BE39009DFCC1 /* JGGDemo1ViewController.h */,
+				18389CFE1FE8BE39009DFCC1 /* JGGDemo1ViewController.m */,
+				18389CFF1FE8BE39009DFCC1 /* JGGDemo1ViewController.xib */,
+			);
+			path = "JGGDemo1Ctrl(输入框)";
 			sourceTree = "<group>";
 		};
 		184328C71FC81C1D00BB4D84 = {
@@ -330,6 +355,15 @@
 				184328FA1FC81C1D00BB4D84 /* Info.plist */,
 			);
 			path = JGGDemoUITests;
+			sourceTree = "<group>";
+		};
+		1867CF921FEA071500AE7F15 /* XC_InputView */ = {
+			isa = PBXGroup;
+			children = (
+				1867CF931FEA072F00AE7F15 /* XC_TextView.h */,
+				1867CF941FEA072F00AE7F15 /* XC_TextView.m */,
+			);
+			path = XC_InputView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18102DF81FE7D50700AFD76A /* testTableViewCell.xib in Resources */,
+				18389D011FE8BE39009DFCC1 /* JGGDemo1ViewController.xib in Resources */,
 				184328E31FC81C1D00BB4D84 /* LaunchScreen.storyboard in Resources */,
 				184328E01FC81C1D00BB4D84 /* Assets.xcassets in Resources */,
 				184328DE1FC81C1D00BB4D84 /* Main.storyboard in Resources */,
@@ -474,15 +509,18 @@
 				18102DF21FE7D4D100AFD76A /* JGGDemoViewController.m in Sources */,
 				18102DCD1FE7CEA000AFD76A /* SDWebImageDownloaderOperation.m in Sources */,
 				18102DD61FE7CEA000AFD76A /* UIView+WebCacheOperation.m in Sources */,
+				18389D001FE8BE39009DFCC1 /* JGGDemo1ViewController.m in Sources */,
 				184328DB1FC81C1D00BB4D84 /* ViewController.m in Sources */,
 				18102DD01FE7CEA000AFD76A /* UIButton+WebCache.m in Sources */,
 				18102DC81FE7CEA000AFD76A /* NSData+ImageContentType.m in Sources */,
+				18389D041FE8C441009DFCC1 /* NSString+Helper.m in Sources */,
 				18102DCF1FE7CEA000AFD76A /* SDWebImagePrefetcher.m in Sources */,
 				18102DCC1FE7CEA000AFD76A /* SDWebImageDownloader.m in Sources */,
 				184328D81FC81C1D00BB4D84 /* AppDelegate.m in Sources */,
 				18102DD31FE7CEA000AFD76A /* UIImage+WebP.m in Sources */,
 				18102DD51FE7CEA000AFD76A /* UIImageView+WebCache.m in Sources */,
 				18102DCB1FE7CEA000AFD76A /* SDWebImageDecoder.m in Sources */,
+				1867CF951FEA072F00AE7F15 /* XC_TextView.m in Sources */,
 				18102DC71FE7CEA000AFD76A /* MKAnnotationView+WebCache.m in Sources */,
 				18102DCA1FE7CEA000AFD76A /* SDWebImageCompat.m in Sources */,
 				184328D51FC81C1D00BB4D84 /* main.m in Sources */,

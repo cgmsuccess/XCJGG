@@ -6,7 +6,6 @@
 //  Copyright © 2017年 apple. All rights reserved.
 //
 
-#import "BaseTableViewController.h"
 
 @interface JGGDemoViewController : UITableViewController
 

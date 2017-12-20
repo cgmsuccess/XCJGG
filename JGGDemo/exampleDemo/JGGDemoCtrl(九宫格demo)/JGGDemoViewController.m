@@ -123,7 +123,6 @@
     cell.jggview.placeholderImage = [UIImage imageNamed:@"2.png"];
     
     
-    
     cell.jggview.cilckhandle = ^(NSInteger index ,NSMutableArray *dataSource){
         XCLog(@"index = %ld ,option = %@" ,index ,dataSource[index]);
     };
