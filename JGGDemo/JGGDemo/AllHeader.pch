@@ -30,7 +30,7 @@
 
 #import "UIView+Frame.h"
 #import "NSString+Helper.h"
-
+#import "Masonry.h"
 
 
 #ifdef DEBUG

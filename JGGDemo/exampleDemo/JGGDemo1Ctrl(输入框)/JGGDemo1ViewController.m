@@ -18,8 +18,6 @@
 @property (nonatomic,strong)XC_TextView *codeTextView ;
 
 
-/**  输入框的高度   */
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputViewHeight;
 
 
 @end
@@ -33,9 +31,9 @@
 //    CGFloat height = [NSString autoHeightWithString:@"初始高度" Width:KmainScreenWidth Font:14];
 //    self.inputViewHeight.constant = height + 20 ;
 //    
-
+    //xib 创建 一定要设置这个，不然textView朝下偏移了64 .
     self.automaticallyAdjustsScrollViewInsets = NO ;
-//    self.inputView.delegate = self;
+    self.inputView.delegate = self;
     
     //xib
     [self xibCreatTextView];
@@ -58,7 +56,7 @@
 
 -(void)codeCreatTextView
 {
-    self.codeTextView = [[XC_TextView alloc] initWithFrame:CGRectMake(0, 200, KmainScreenWidth, 55)];
+    self.codeTextView = [[XC_TextView alloc] initWithFrame:CGRectMake(0, 300, KmainScreenWidth, 55)];
     [self.view addSubview:self.codeTextView];
     self.codeTextView.backgroundColor = [UIColor greenColor];
     self.codeTextView.placeholderString = @"code 创建,请输入，最多10位";

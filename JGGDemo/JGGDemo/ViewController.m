@@ -59,7 +59,7 @@ NSString * const  syscell = @"syscell";
 
 -(void)getdata
 {
-   NSArray *arr = @[@"XC_JGGView的基本使用JGGDemo",@"UITextfile的简单封装JGGDemo1",];
+   NSArray *arr = @[@"XC_JGGView的基本使用JGGDemo",@"UITextfile的简单封装JGGDemo1",@"UITextfile高度的限制JGGDemo2"];
     
     self.dataSource = [NSMutableArray arrayWithArray:arr];
 }

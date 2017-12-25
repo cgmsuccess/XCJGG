@@ -48,9 +48,8 @@
     
     //这里一个小坑 object:nil 如果设置为nil。那么会通知每一个 XC_TextView 对象。，所以会出现其他问题
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:nil];
-    
     self.scrollEnabled = self.hasText ;
-    
+    _textViewFont = 14;
     _maxInputWord = MAXFLOAT;
 }
 
@@ -166,6 +165,8 @@
     self.placeholderLabel.y = _placeHolderOffsetY;
     self.placeholderLabel.width = self.width - _placeHolderOffsetX ;
     self.placeholderLabel.height = [NSString autoHeightWithString:_placeholderString Width:self.width Font:LabelFont];
+    self.placeholderLabel.hidden = self.hasText;
+
 }
 
 - (void)dealloc

@@ -23,7 +23,7 @@
 /** 这个属性是： 设置占位文字颜色****/
 @property(null_resettable, nonatomic,strong)UIColor * placeholderColor;
 
-/** 这个属性是： 占位字的大小 ****/
+/** 这个属性是： 占位字的大小 默认 14 ****/
 @property (nonatomic,assign)NSInteger placeholderLabelFont;
 
 /** 这个属性是： 设置占位文字的X偏移量****/
@@ -32,13 +32,13 @@
 /** 这个属性是： 设置占位文字的Y偏移量****/
 @property (nonatomic, assign) CGFloat placeHolderOffsetY;
 
-/** 这个属性是： 设置textView的字体显示的大小 ****/
+/** 这个属性是： 设置textView的字体显示的大小 ,默认为 14 ****/
 @property (nonatomic, assign) CGFloat textViewFont ;
 
 /** 这个属性是： 光标的颜色 ****/
 @property(null_resettable, nonatomic,strong)UIColor * cursorColor;
 
-/** 这个属性是： 最多输入多少个字****/
+/** 这个属性是： 最多输入多少个字 ，默认无数个 ****/
 @property (nonatomic,assign)NSInteger maxInputWord ;
 
 
