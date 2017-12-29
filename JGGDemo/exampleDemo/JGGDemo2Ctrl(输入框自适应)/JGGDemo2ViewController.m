@@ -8,7 +8,7 @@
 
 #import "JGGDemo2ViewController.h"
 #import "XC_TextView.h"
-
+#import "XC_AutoTextView.h"
 @interface JGGDemo2ViewController ()<UITextViewDelegate>
 {
     CGFloat textviewHeight ;
@@ -26,6 +26,14 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO ;
+    
+    
+    XC_AutoTextView *view =  [[XC_AutoTextView alloc] init];
+    view.backgroundColor = [UIColor yellowColor];
+    view.frame = CGRectMake(0, 300, KmainScreenWidth, 44);
+    [self.view addSubview:view];
+    
+    
     
     [self setUI];
 }

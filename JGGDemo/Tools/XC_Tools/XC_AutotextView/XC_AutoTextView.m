@@ -55,6 +55,13 @@
 {
     [super layoutSubviews];
     
+    [self.xcTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self).with.offset(0);
+        make.bottom.mas_equalTo(self).with.offset(0);
+        make.right.mas_equalTo(self).with.offset(0);
+        make.left.mas_equalTo(self).with.offset(0);
+    }];
+
 }
 
 @end
