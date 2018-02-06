@@ -41,6 +41,17 @@
 /** 这个属性是： 最多输入多少个字 ，默认无数个 ****/
 @property (nonatomic,assign)NSInteger maxInputWord ;
 
+/**    已经输入了多少字回调      ****/
+@property (nonatomic,copy)void(^inputTextHandle)(NSString * _Nullable inputString);
+
+
+/**
+ 设置边框。以及边框的颜色，和弧度
+ 
+ @param borderColore 边框色
+ @param circular 弧度大小
+ */
+-(void)addBorder:(UIColor *_Nonnull)borderColore Andcircular:(CGFloat)circular;
 
 
 @end

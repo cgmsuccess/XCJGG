@@ -8,6 +8,8 @@
 
 #import "XC_TextView.h"
 
+NSInteger maxInput = MAXFLOAT ;
+
 @interface XC_TextView()
 
 /** 这个属性是：占位文字的Label****/
@@ -50,7 +52,7 @@
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:nil];
     self.scrollEnabled = self.hasText ;
     _textViewFont = 14;
-    _maxInputWord = MAXFLOAT;
+    _maxInputWord = maxInput;
 }
 
 #pragma mark Other
@@ -134,11 +136,12 @@
             if (toBeString.length > _maxInputWord) {                
                 // 截取子串
                 self.text = [toBeString substringToIndex:_maxInputWord];
+                self.inputTextHandle(self.text);
             }
         } else { // 有高亮选择的字符串，则暂不对文字进行统计和限制
             
 //            XCLog(@"11111111111111========      %@",position);
-        
+        self.inputTextHandle(self.text);
         }
     } else {
         
@@ -146,9 +149,20 @@
         if (toBeString.length > _maxInputWord) {
             // 截取子串
             self.text = [toBeString substringToIndex:_maxInputWord];
+            self.inputTextHandle(self.text);
         }
     }
 }
+
+/*   加边框  **/
+-(void)addBorder:(UIColor *)borderColore Andcircular:(CGFloat)circular
+{
+    self.layer.masksToBounds = YES ;
+    self.layer.cornerRadius = circular ;
+    self.layer.borderWidth = 1.0f;
+    self.layer.borderColor = borderColore.CGColor;
+}
+
 
 #pragma mark system
 -(void)layoutSubviews

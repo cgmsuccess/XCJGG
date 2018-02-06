@@ -49,6 +49,10 @@
 {
     [self addSubview:self.xcTextView];
     
+    self.xcTextView.inputTextHandle = ^(NSString * _Nullable inputString) {
+        XCLog(@"inputString = %@" ,inputString) ;
+    };
+    
 }
 
 -(void)layoutSubviews

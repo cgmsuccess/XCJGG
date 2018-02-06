@@ -52,7 +52,11 @@
     self.inputView.cursorColor = [UIColor redColor];
     self.inputView.placeholderColor = [UIColor cyanColor];
     self.inputView.placeholderLabelFont = 15 ;
+    self.inputView.inputTextHandle = ^(NSString * _Nullable inputString) {
+        XCLog(@"inputString = %@" ,inputString);
+    };
 }
+
 
 -(void)codeCreatTextView
 {
@@ -68,6 +72,9 @@
     self.codeTextView.maxInputWord = 10 ;
     self.codeTextView.layer.borderColor = [UIColor blackColor].CGColor;
     self.codeTextView.delegate = self ;
+    self.codeTextView.inputTextHandle = ^(NSString * _Nullable inputString) {
+        XCLog(@"inputString = %@" ,inputString);
+    };
 }
 
 

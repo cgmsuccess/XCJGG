@@ -50,12 +50,15 @@
 
     self.codeTextView.cursorColor = [UIColor blackColor];
     self.codeTextView.textViewFont = 14 ;
-    
     self.codeTextView.layer.masksToBounds = YES ;
     self.codeTextView.layer.cornerRadius = 15 ;
     self.codeTextView.layer.borderWidth = 1.0f;
     self.codeTextView.layer.borderColor = [UIColor blackColor].CGColor;
     self.codeTextView.delegate = self ;
+    self.codeTextView.inputTextHandle = ^(NSString * _Nullable inputString) {
+        NSLog(@"inputString = %@" ,inputString) ;
+    };
+    
 }
 
 -(void)viewDidLayoutSubviews
