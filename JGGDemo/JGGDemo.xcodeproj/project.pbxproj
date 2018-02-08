@@ -41,6 +41,7 @@
 		184328EE1FC81C1D00BB4D84 /* JGGDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328ED1FC81C1D00BB4D84 /* JGGDemoTests.m */; };
 		184328F91FC81C1D00BB4D84 /* JGGDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328F81FC81C1D00BB4D84 /* JGGDemoUITests.m */; };
 		1867CF951FEA072F00AE7F15 /* XC_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1867CF941FEA072F00AE7F15 /* XC_TextView.m */; };
+		243BF401202C5B2800856DD5 /* XC_pageShowemotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 243BF400202C5B2800856DD5 /* XC_pageShowemotionView.m */; };
 		244DA859202AD7A1003328D2 /* XC_ keyboardTopTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 244DA857202AD7A1003328D2 /* XC_ keyboardTopTools.m */; };
 		244DA85F202AE18A003328D2 /* XC_EmojikeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 244DA85E202AE18A003328D2 /* XC_EmojikeyBoardView.m */; };
 		244DA862202AE6D5003328D2 /* XC_EmojikeyTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 244DA861202AE6D5003328D2 /* XC_EmojikeyTabbar.m */; };
@@ -146,6 +147,8 @@
 		184328FA1FC81C1D00BB4D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1867CF931FEA072F00AE7F15 /* XC_TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_TextView.h; sourceTree = "<group>"; };
 		1867CF941FEA072F00AE7F15 /* XC_TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_TextView.m; sourceTree = "<group>"; };
+		243BF3FF202C5B2800856DD5 /* XC_pageShowemotionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XC_pageShowemotionView.h; sourceTree = "<group>"; };
+		243BF400202C5B2800856DD5 /* XC_pageShowemotionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XC_pageShowemotionView.m; sourceTree = "<group>"; };
 		244DA857202AD7A1003328D2 /* XC_ keyboardTopTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XC_ keyboardTopTools.m"; sourceTree = "<group>"; };
 		244DA858202AD7A1003328D2 /* XC_ keyboardTopTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XC_ keyboardTopTools.h"; sourceTree = "<group>"; };
 		244DA85D202AE18A003328D2 /* XC_EmojikeyBoardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XC_EmojikeyBoardView.h; sourceTree = "<group>"; };
@@ -431,6 +434,8 @@
 				244DA864202AE8F0003328D2 /* XC_EmojiTabarCollectionViewCell.m */,
 				244DA870202B0F5B003328D2 /* XC_EmotionListView.h */,
 				244DA871202B0F5B003328D2 /* XC_EmotionListView.m */,
+				243BF3FF202C5B2800856DD5 /* XC_pageShowemotionView.h */,
+				243BF400202C5B2800856DD5 /* XC_pageShowemotionView.m */,
 			);
 			path = XC_InputView;
 			sourceTree = "<group>";
@@ -650,6 +655,7 @@
 				F75B00EB1FED01E3003AA045 /* MASLayoutConstraint.m in Sources */,
 				F75B00ED1FED01E3003AA045 /* View+MASAdditions.m in Sources */,
 				244DA872202B0F5B003328D2 /* XC_EmotionListView.m in Sources */,
+				243BF401202C5B2800856DD5 /* XC_pageShowemotionView.m in Sources */,
 				18102DD51FE7CEA000AFD76A /* UIImageView+WebCache.m in Sources */,
 				244DA85F202AE18A003328D2 /* XC_EmojikeyBoardView.m in Sources */,
 				18102DCB1FE7CEA000AFD76A /* SDWebImageDecoder.m in Sources */,
