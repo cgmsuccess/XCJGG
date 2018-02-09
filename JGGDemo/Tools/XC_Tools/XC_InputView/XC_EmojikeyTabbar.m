@@ -45,6 +45,8 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
     _dataSource = dataSource ;
 }
 
+
+
 #pragma mark - UICollectionViewDataSource UICollectionViewDelegateFlowLayout
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
@@ -89,6 +91,13 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
 -(CGSize )collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake(self.height, self.height);
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(cilckEmotionsTabbar:AndcilckIndex:)]) {
+        [self.delegate cilckEmotionsTabbar:self AndcilckIndex:indexPath.row];
+    }
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "XC_TextView.h"
 #import "XC_ keyboardTopTools.h"
 #import "XC_EmojikeyBoardView.h"
+#import "XCEmotionTool.h"
 
 @interface JGGDemo2ViewController ()<UITextViewDelegate,XCComposeToolbarTopDelegate>
 {
@@ -50,6 +51,8 @@
     
     [self setUI];
 }
+
+
 
 -(void)setUI
 {
@@ -98,6 +101,9 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+
+    XCLog(@"%@",[XCEmotionTool defaultEmotions]);
+
     [self.view endEditing:YES];
 }
 
