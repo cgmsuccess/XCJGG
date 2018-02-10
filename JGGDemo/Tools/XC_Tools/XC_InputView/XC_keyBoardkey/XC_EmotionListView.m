@@ -49,7 +49,6 @@
 - (void)setEmotionArrs:(NSArray *)EmotionArrs
 {
     _EmotionArrs = EmotionArrs;
-    
     // 删除之前的控件
     [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     //计算页数
@@ -82,10 +81,31 @@
 -(void)layoutSubviews
 {
     // 1.pageControl
-    self.pageControl.width = self.width;
-    self.pageControl.height = 25;
-    self.pageControl.x = 0;
-    self.pageControl.y = self.height - self.pageControl.height;
+    [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(KmainScreenWidth);
+        make.height.mas_equalTo(@25);
+        make.left.offset(0);
+        make.bottom.offset(0);
+    }];
+
+    // 2.scrollView
+    self.scrollView.width = self.width;
+    self.scrollView.height = self.height - 25;
+    self.scrollView.x = self.scrollView.y = 0;
+    
+    // 3.设置scrollView内部每一页的尺寸
+    NSUInteger count = self.scrollView.subviews.count;
+    for (int i = 0; i<count; i++) {
+        XC_pageShowemotionView *pageView = self.scrollView.subviews[i];
+        pageView.height = self.scrollView.height;
+        pageView.width = self.scrollView.width;
+        pageView.x = pageView.width * i;
+        pageView.y = 0;
+    }
+    
+    // 4.设置scrollView的contentSize
+    self.scrollView.contentSize = CGSizeMake(count * self.scrollView.width, 0);
+    
 }
 
 

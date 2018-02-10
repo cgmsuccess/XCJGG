@@ -57,6 +57,7 @@
 {
     if (!_defaultListView) {
         _defaultListView = [[XC_EmotionListView alloc] init];
+        _defaultListView.EmotionArrs = [XCEmotionTool defaultEmotions];
     }
     return _defaultListView;
 }
@@ -67,12 +68,14 @@
 {
     self.backgroundColor = [UIColor redColor];
     self.emojiTabar.backgroundColor = [UIColor blueColor];
+    self.emojiTabar.delegate = self;
     self.emojiTabar.dataSource = [NSMutableArray arrayWithArray:@[@"compose_mentionbutton_background_highlighted",@"compose_mentionbutton_background_highlighted",@"compose_mentionbutton_background_highlighted",@"compose_mentionbutton_background_highlighted"]];
+    self.emojiTabar.defaultEmtionType = XC_EmojikeyTabbarCilckTypeDefault ;
     [self addSubview:_emojiTabar];
-    
     [self addSubview:self.defaultListView];
-    self.defaultListView.EmotionArrs = [XCEmotionTool defaultEmotions];
+
     self.defaultListView.backgroundColor = [UIColor cyanColor];
+
     
 }
 
@@ -81,6 +84,7 @@
 #pragma mark XCEmotionTabBarDelegate  点击tabbar 的表情
 -(void)cilckEmotionsTabbar:(XC_EmojikeyTabbar *)emotionsTabbarView AndcilckIndex:(XC_EmojikeyTabbarCilckType)emotionTabbarType
 {
+    
     switch (emotionTabbarType) {
         case XC_EmojikeyTabbarCilckTypeRecent:
             
@@ -116,6 +120,7 @@
         make.bottom.equalTo(self.emojiTabar.mas_top).offset(0);
     }];
     
+
 
 }
 

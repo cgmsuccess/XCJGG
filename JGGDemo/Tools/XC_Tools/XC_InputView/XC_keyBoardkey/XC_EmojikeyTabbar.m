@@ -12,6 +12,9 @@
 NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
 
 @interface XC_EmojikeyTabbar()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
+    XC_EmojiTabarCollectionViewCell *customcell ;
+}
 
 @property (nonatomic,strong)UICollectionView *collectionView ;
 
@@ -38,6 +41,14 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
         make.bottom.offset(0);
         make.top.offset(0);
     }];
+    
+    if ([self.delegate respondsToSelector:@selector(cilckEmotionsTabbar:AndcilckIndex:)]) {
+        if (self.defaultEmtionType) {
+            [self.delegate cilckEmotionsTabbar:self AndcilckIndex:0];
+        }else{
+            [self.delegate cilckEmotionsTabbar:self AndcilckIndex:self.defaultEmtionType];
+        }
+    }
 }
 
 -(void)setDataSource:(NSMutableArray *)dataSource
@@ -45,6 +56,11 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
     _dataSource = dataSource ;
 }
 
+-(void)defaultSelectOptionsCell:(void(^)(XC_EmojiTabarCollectionViewCell *cell))selectBlock
+{
+    customcell.backView.backgroundColor = [UIColor whiteColor];
+    selectBlock(customcell);
+}
 
 
 #pragma mark - UICollectionViewDataSource UICollectionViewDelegateFlowLayout
@@ -85,6 +101,19 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
     cell.backView.backgroundColor = [UIColor grayColor];
     NSString *imageString = _dataSource[indexPath.row];
     cell.backImageView.image = [UIImage imageNamed:imageString];
+    
+    if (self.defaultEmtionType) {
+        if (indexPath.row == self.defaultEmtionType) {
+            customcell = cell ;
+            customcell.backView.backgroundColor = [UIColor whiteColor];
+            return customcell;
+        }
+    }else if(indexPath.row == 0){
+        customcell = cell ;
+        customcell.backView.backgroundColor = [UIColor whiteColor];
+        return customcell;
+    }
+    
     return cell;
 }
 
@@ -93,8 +122,20 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
     return CGSizeMake(self.height, self.height);
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    XC_EmojiTabarCollectionViewCell *cell = (XC_EmojiTabarCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backView.backgroundColor = [UIColor grayColor];
+
+}
+
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    customcell.backView.backgroundColor = [UIColor grayColor];
+    
+    XC_EmojiTabarCollectionViewCell *cell = (XC_EmojiTabarCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backView.backgroundColor = [UIColor whiteColor];
+
     if ([self.delegate respondsToSelector:@selector(cilckEmotionsTabbar:AndcilckIndex:)]) {
         [self.delegate cilckEmotionsTabbar:self AndcilckIndex:indexPath.row];
     }

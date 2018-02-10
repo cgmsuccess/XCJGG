@@ -21,6 +21,7 @@ static NSArray  *_defaultEmotions;
         
         NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"XEmotionIcons" ofType:@"bundle"];
         NSString * path = [NSString stringWithFormat:@"%@/default/info.plist",bundlePath];
+        
         NSArray *emotionArr = [NSArray arrayWithContentsOfFile:path];
         NSMutableArray *emotionModelArr = [NSMutableArray array];
         for (NSDictionary *dic in emotionArr) {

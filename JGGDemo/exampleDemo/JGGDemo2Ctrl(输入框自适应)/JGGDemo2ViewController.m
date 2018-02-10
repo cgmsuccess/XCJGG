@@ -69,7 +69,7 @@
     
     // 键盘通知
     // 键盘的frame发生改变时发出的通知（位置和尺寸）
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [XCNotificationCenter addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
 }
 
@@ -102,7 +102,6 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 
-    XCLog(@"%@",[XCEmotionTool defaultEmotions]);
 
     [self.view endEditing:YES];
 }

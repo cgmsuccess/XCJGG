@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "XC_EmotionButton.h"
 // 一页中最多3行
 #define XC_EmotionMaxRows 3
 // 一行中最多7列

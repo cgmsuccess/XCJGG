@@ -34,11 +34,15 @@ typedef NS_ENUM(NSInteger,XC_EmojikeyTabbarCilckType) {
 
 @interface XC_EmojikeyTabbar : UIView
 
+/**    默认选择哪个表情      ****/
+@property (nonatomic,assign)XC_EmojikeyTabbarCilckType defaultEmtionType ;
+
 /**    tabar选项的图片数据      ****/
 @property (nonatomic,copy)NSMutableArray *dataSource;
 
 /**          ****/
 @property (nonatomic,weak)id <XCEmotionTabBarDelegate> delegate;
+
 
 
 @end
