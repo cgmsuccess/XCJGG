@@ -57,7 +57,6 @@
 
 -(void)setUI
 {
-
     
     self.topTools = [[XC__keyboardTopTools alloc] initWithFrame:CGRectMake(0, KmainScreenHeiht - 106, KmainScreenWidth, 106)];
     self.topTools.showKeyboardButton = YES ;

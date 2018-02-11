@@ -14,15 +14,20 @@ extern NSString * const XC_EmotionDidSelectNotification;
 extern NSString * const XC_EmotionDidDeleteNotification;
 
 
+// 选中表情发出的通知
+extern NSString * const XC_SelectEmotionNotification;
+
+/**  选中某个表情的Key   */
+extern NSString * const XC_SelectEmotionKey;
+
+
+
 /**  表情底部tabbar 选中的颜色   */
 #define EmtionTabarSelectColor [UIColor orangeColor]
 /**  表情底部tabbar 未选中选中的颜色   */
 #define EmtionTabarncheckColor [[UIColor lightGrayColor] colorWithAlphaComponent:0.4f]
 /**  通知中心   */
 #define XCNotificationCenter  [NSNotificationCenter defaultCenter]
-
-
-
 
 
 

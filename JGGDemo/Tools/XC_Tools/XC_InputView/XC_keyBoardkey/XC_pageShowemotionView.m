@@ -49,8 +49,9 @@
     for (int i = 0; i < count; i++) {
         XC_EmotionButton *btn = [[XC_EmotionButton alloc] init];
         [self addSubview:btn];
+        XCEmotionModel *model = emotions[i];
         // 设置表情数据
-        btn.emotionModel = emotions[i];
+        btn.emotionModel = model ;
         // 监听按钮点击
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -96,6 +97,8 @@
  */
 - (void)btnClick:(XC_EmotionButton *)btn
 {
+    XCLog(@"%@",btn.emotionModel);
+    
     // 发出通知
     [self selectEmotion:btn.emotionModel];
 }
@@ -110,8 +113,9 @@
     
     // 发出通知
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-    
-    XCLog(@"userInfo = %@" ,userInfo);
+    userInfo[XC_SelectEmotionKey] = emotion;
+
+    XCLog(@"userInfo = %@ , emotion = %@" ,userInfo ,emotion);
     
     [XCNotificationCenter postNotificationName:XC_EmotionDidSelectNotification object:nil userInfo:userInfo];
 }

@@ -19,6 +19,9 @@
 /**    表情切换tabbar      ****/
 @property (nonatomic,strong)XC_EmojikeyTabbar *emojiTabar;
 
+/**    最近使用表情内容      ****/
+@property (nonatomic,strong)XC_EmotionListView *recentListView ;
+
 /**    默认表情内容      ****/
 @property (nonatomic,strong)XC_EmotionListView *defaultListView ;
 
@@ -36,6 +39,7 @@
 
 @implementation XC_EmojikeyBoardView
 
+//code
 -(instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -44,12 +48,22 @@
     return self;
 }
 
+//xib
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
         [self setConfiger];
     }
     return self;
+}
+
+/**  最近使用的表情内容   */
+-(XC_EmotionListView *)recentListView
+{
+    if (!_recentListView) {
+        _recentListView = [[XC_EmotionListView alloc] init];
+    }
+    return _recentListView ;
 }
 
 /*   切换表情的 tababr  **/
@@ -76,7 +90,9 @@
 {
     if (!_lxhListView) {
         _lxhListView = [[XC_EmotionListView alloc] init];
-        _lxhListView.EmotionArrs = [XCEmotionTool lxhEmtions];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            _lxhListView.EmotionArrs = [XCEmotionTool lxhEmtions];
+        });
     }
     return _lxhListView;
 }
@@ -86,7 +102,9 @@
 {
     if (!_qqListView) {
         _qqListView = [[XC_EmotionListView alloc] init];
-        _qqListView.EmotionArrs = [XCEmotionTool qqEmtions];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            _qqListView.EmotionArrs = [XCEmotionTool qqEmtions];
+        });
     }
     return _qqListView;
 }
@@ -117,6 +135,8 @@
     self.emojiTabar.defaultEmtionType = XC_EmojikeyTabbarCilckTypeDefault ;
     [self addSubview:_emojiTabar];
   
+    [self.scrollView addSubview:self.recentListView];
+    self.recentListView.backgroundColor = [UIColor clearColor];
     
     [self.scrollView addSubview:self.defaultListView];
     self.defaultListView.backgroundColor = [UIColor clearColor];

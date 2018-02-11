@@ -52,6 +52,7 @@
 
 -(void)setEmotionModel:(XCEmotionModel *)emotionModel
 {
+    _emotionModel = emotionModel ;
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"XEmotionIcons" ofType:@"bundle"];
     NSString * path;
 

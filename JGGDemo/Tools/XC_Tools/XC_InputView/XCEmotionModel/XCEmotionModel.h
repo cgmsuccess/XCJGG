@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger,XCentionModelType){
 
 /** 表情的文字描述 */
 @property (nonatomic, copy) NSString *chs;
+
 /** 表情的png图片名 */
 @property (nonatomic, copy) NSString *png;
 

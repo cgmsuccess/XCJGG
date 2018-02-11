@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "XCEmotionModel.h"
+
 @interface XC_EmotionButton : UIButton
 
 @property (nonatomic, strong) XCEmotionModel *emotionModel;
