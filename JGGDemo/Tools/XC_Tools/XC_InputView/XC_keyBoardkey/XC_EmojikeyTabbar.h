@@ -12,7 +12,8 @@
 typedef NS_ENUM(NSInteger,XC_EmojikeyTabbarCilckType) {
     XC_EmojikeyTabbarCilckTypeRecent,//最近
     XC_EmojikeyTabbarCilckTypeDefault,//默认
-    XC_EmojikeyTabbarCilckTypeLxh //浪小花
+    XC_EmojikeyTabbarCilckTypeLxh, //浪小花
+    XC_EmojikeyTabbarCilckTypeQQ //QQ表情
 };
 
 
@@ -40,9 +41,11 @@ typedef NS_ENUM(NSInteger,XC_EmojikeyTabbarCilckType) {
 /**    tabar选项的图片数据      ****/
 @property (nonatomic,copy)NSMutableArray *dataSource;
 
-/**          ****/
+/**    点击按钮回调出去    ****/
 @property (nonatomic,weak)id <XCEmotionTabBarDelegate> delegate;
 
+/**    切换表情视图。传入想要展示的那个表情  */
+-(void)switchemotion:(XC_EmojikeyTabbarCilckType)emtiontype;
 
 
 @end

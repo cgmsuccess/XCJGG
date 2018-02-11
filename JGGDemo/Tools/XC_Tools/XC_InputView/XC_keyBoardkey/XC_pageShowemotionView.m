@@ -49,7 +49,6 @@
     for (int i = 0; i < count; i++) {
         XC_EmotionButton *btn = [[XC_EmotionButton alloc] init];
         [self addSubview:btn];
-        XCLog(@"emotions[%lu] model = %@", (unsigned long)count ,emotions[i]);
         // 设置表情数据
         btn.emotionModel = emotions[i];
         // 监听按钮点击

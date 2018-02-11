@@ -36,6 +36,7 @@
         // 键盘的宽度
         self.emotionKeyboard.width = self.view.width;
         self.emotionKeyboard.height = 216;
+        self.emotionKeyboard.backgroundColor = [UIColor whiteColor];
     }
     return _emotionKeyboard;
 }

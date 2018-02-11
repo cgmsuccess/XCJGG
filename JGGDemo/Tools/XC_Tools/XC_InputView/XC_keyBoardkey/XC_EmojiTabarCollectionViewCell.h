@@ -16,4 +16,7 @@
 /**    图片      ****/
 @property (nonatomic,weak)UIImageView *backImageView;
 
+/**    图片的名字      ****/
+@property (nonatomic,copy)NSString *imageName;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "XC_EmojiTabarCollectionViewCell.h"
 
+
 @implementation XC_EmojiTabarCollectionViewCell
 
 -(instancetype)initWithFrame:(CGRect)frame
@@ -31,6 +32,16 @@
     
     [self.backView addSubview:self.backImageView];
 }
+
+-(void)setImageName:(NSString *)imageName
+{
+    _imageName = imageName;
+
+    UIImage *image = GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", _imageName);
+    
+    self.backImageView.image = image ;
+}
+
 
 -(void)layoutSubviews
 {

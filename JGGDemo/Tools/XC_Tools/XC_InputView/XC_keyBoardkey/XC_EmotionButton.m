@@ -53,8 +53,22 @@
 -(void)setEmotionModel:(XCEmotionModel *)emotionModel
 {
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"XEmotionIcons" ofType:@"bundle"];
-    
-    NSString * path = [NSString stringWithFormat:@"%@/default",bundlePath];
+    NSString * path;
+
+    switch (emotionModel.xcemotionType) {
+        case XCentionModelTypeDefault: //默认表情
+            path = [NSString stringWithFormat:@"%@/default",bundlePath];
+            break;
+        case XCentionModelTypeLxh:
+            path = [NSString stringWithFormat:@"%@/lxh",bundlePath];
+            break;
+        case XCentionModelTypeQQ:
+            path = [NSString stringWithFormat:@"%@/QQEmotion",bundlePath];
+
+            break;
+        default:
+            break;
+    }
     
     UIImage *img = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",path,emotionModel.png]];
 

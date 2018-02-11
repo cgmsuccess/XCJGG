@@ -18,7 +18,6 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
 
 @property (nonatomic,strong)UICollectionView *collectionView ;
 
-
 @end
 
 @implementation XC_EmojikeyTabbar
@@ -44,9 +43,9 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
     
     if ([self.delegate respondsToSelector:@selector(cilckEmotionsTabbar:AndcilckIndex:)]) {
         if (self.defaultEmtionType) {
-            [self.delegate cilckEmotionsTabbar:self AndcilckIndex:0];
-        }else{
             [self.delegate cilckEmotionsTabbar:self AndcilckIndex:self.defaultEmtionType];
+        }else{
+            [self.delegate cilckEmotionsTabbar:self AndcilckIndex:0];
         }
     }
 }
@@ -60,6 +59,12 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
 {
     customcell.backView.backgroundColor = [UIColor whiteColor];
     selectBlock(customcell);
+}
+
+-(void)switchemotion:(XC_EmojikeyTabbarCilckType)emtiontype
+{
+    self.defaultEmtionType = emtiontype ;
+    [self.collectionView reloadData];
 }
 
 
@@ -98,19 +103,21 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XC_EmojiTabarCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:xc_emojitabbarCell forIndexPath:indexPath];
-    cell.backView.backgroundColor = [UIColor grayColor];
+    //默认未选中的颜色
+    cell.backView.backgroundColor = EmtionTabarncheckColor;
     NSString *imageString = _dataSource[indexPath.row];
-    cell.backImageView.image = [UIImage imageNamed:imageString];
-    
+    cell.imageName = imageString ;
+   
+    //设置选中的颜色
     if (self.defaultEmtionType) {
         if (indexPath.row == self.defaultEmtionType) {
             customcell = cell ;
-            customcell.backView.backgroundColor = [UIColor whiteColor];
+            customcell.backView.backgroundColor = EmtionTabarSelectColor;
             return customcell;
         }
     }else if(indexPath.row == 0){
         customcell = cell ;
-        customcell.backView.backgroundColor = [UIColor whiteColor];
+        customcell.backView.backgroundColor = EmtionTabarSelectColor;
         return customcell;
     }
     
@@ -125,20 +132,40 @@ NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
 -(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     XC_EmojiTabarCollectionViewCell *cell = (XC_EmojiTabarCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.backView.backgroundColor = [UIColor grayColor];
+    cell.backView.backgroundColor = EmtionTabarncheckColor;
 
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    customcell.backView.backgroundColor = [UIColor grayColor];
+    customcell.backView.backgroundColor = EmtionTabarncheckColor;
     
     XC_EmojiTabarCollectionViewCell *cell = (XC_EmojiTabarCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.backView.backgroundColor = [UIColor whiteColor];
+    cell.backView.backgroundColor = EmtionTabarSelectColor;
 
     if ([self.delegate respondsToSelector:@selector(cilckEmotionsTabbar:AndcilckIndex:)]) {
         [self.delegate cilckEmotionsTabbar:self AndcilckIndex:indexPath.row];
     }
+}
+#pragma makr 绘制顶部直线
+
+-(void)drawRect:(CGRect)rect
+{
+    //1 , 获取上下文 以后获取上下文直接用 UIGraphics
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    //2 , 设置绘图信息（拼接路径）
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    //3 , 设置起点
+    [path moveToPoint:CGPointMake(0, 0)];
+    //添加一条线到某个点
+    [path addLineToPoint:CGPointMake(self.size.width, 0)];
+    //    [path addLineToPoint:CGPointMake(100, 180)];
+    [[UIColor lightGrayColor] setStroke];
+    
+    //4 ,把路径添加到上下文
+    CGContextAddPath(ctx, path.CGPath);
+    //5 , 渲染上下文 stroke描边
+    CGContextStrokePath(ctx);
 }
 
 @end

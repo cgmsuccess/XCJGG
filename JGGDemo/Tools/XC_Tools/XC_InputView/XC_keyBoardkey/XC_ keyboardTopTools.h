@@ -17,7 +17,6 @@ typedef NS_ENUM(NSInteger,XC_ComposeToolbarButtonType){
 };
 
 
-
 @class XC__keyboardTopTools;
 @protocol XCComposeToolbarTopDelegate <NSObject>
 
