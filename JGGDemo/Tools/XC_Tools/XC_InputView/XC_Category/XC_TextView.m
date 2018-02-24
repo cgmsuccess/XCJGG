@@ -114,10 +114,7 @@ NSInteger maxInput = MAXFLOAT ;
     self.placeholderLabel.hidden = self.hasText;
     self.scrollEnabled = self.hasText ;
     
-    
 ////////////////////////////////////限制长度 ////////////////////////////////////////////////
-    
-    
     // 获取键盘输入模式
     NSString *lang =  [[[UIApplication sharedApplication] textInputMode] primaryLanguage];
     NSString *toBeString = self.text;
@@ -140,8 +137,8 @@ NSInteger maxInput = MAXFLOAT ;
             }
         } else { // 有高亮选择的字符串，则暂不对文字进行统计和限制
             
-//            XCLog(@"11111111111111========      %@",position);
-        self.inputTextHandle(self.text);
+            //XCLog(@"11111111111111========      %@",position);
+            self.inputTextHandle(self.text);
         }
     } else {
         
@@ -153,6 +150,17 @@ NSInteger maxInput = MAXFLOAT ;
         }
     }
 }
+
+/**  富文本输入   */
+-(void)setAttributedText:(NSAttributedString *)attributedText
+{
+    [super setAttributedText:attributedText];
+    //////////////// 占位符是否显示
+    self.placeholderLabel.hidden = self.hasText;
+    self.scrollEnabled = self.hasText ;
+}
+
+
 
 /*   加边框  **/
 -(void)addBorder:(UIColor *)borderColore Andcircular:(CGFloat)circular

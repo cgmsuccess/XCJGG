@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XC_TextView.h"
+//#import "XC_TextView.h"
+#import "XC_EmotionTextView.h"
 
 typedef NS_ENUM(NSInteger,XC_ComposeToolbarButtonType){
     XC_ComposeToolbarButtonTypeEmotion = 0, // 表情
@@ -17,17 +18,17 @@ typedef NS_ENUM(NSInteger,XC_ComposeToolbarButtonType){
 };
 
 
-@class XC__keyboardTopTools;
+@class XC_keyboardManager;
 @protocol XCComposeToolbarTopDelegate <NSObject>
 
 @optional
 
 /*  通过代理传递此view 和点击的按钮   **/
-- (void)composeToolbar:(XC__keyboardTopTools *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType;
+- (void)composeToolbar:(XC_keyboardManager *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType;
 
 @end
 
-@interface XC__keyboardTopTools : UIView
+@interface XC_keyboardManager : UIView
 
 @property (nonatomic, weak) id<XCComposeToolbarTopDelegate> delegate;
 
@@ -39,7 +40,7 @@ typedef NS_ENUM(NSInteger,XC_ComposeToolbarButtonType){
 @property (nonatomic,copy)void(^stringAndHeightHandle)(NSString *inputString,CGFloat height);
 
 /*  设置为 输入框为第一响应者  ,返回输入框 **/
--(XC_TextView *)showXCKeyboard;
+-(XC_EmotionTextView *)showXCKeyboard;
 
 
 @end

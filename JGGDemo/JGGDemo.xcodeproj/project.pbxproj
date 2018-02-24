@@ -42,17 +42,19 @@
 		184328F91FC81C1D00BB4D84 /* JGGDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328F81FC81C1D00BB4D84 /* JGGDemoUITests.m */; };
 		2408A1AB202ECCC60000EF74 /* XCEmotionDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1AA202ECCC60000EF74 /* XCEmotionDefine.m */; };
 		2408A1EF202ECFBA0000EF74 /* XC_EmojikeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1E2202ECFBA0000EF74 /* XC_EmojikeyBoardView.m */; };
-		2408A1F0202ECFBA0000EF74 /* XC_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1E3202ECFBA0000EF74 /* XC_TextView.m */; };
 		2408A1F1202ECFBA0000EF74 /* XC_EmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1E7202ECFBA0000EF74 /* XC_EmotionButton.m */; };
 		2408A1F2202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1E8202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.m */; };
 		2408A1F3202ECFBA0000EF74 /* XC_pageShowemotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1E9202ECFBA0000EF74 /* XC_pageShowemotionView.m */; };
-		2408A1F4202ECFBA0000EF74 /* XC_ keyboardTopTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1EC202ECFBA0000EF74 /* XC_ keyboardTopTools.m */; };
+		2408A1F4202ECFBA0000EF74 /* XC_keyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1EC202ECFBA0000EF74 /* XC_keyboardManager.m */; };
 		2408A1F5202ECFBA0000EF74 /* XC_EmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1ED202ECFBA0000EF74 /* XC_EmotionListView.m */; };
 		2408A1F6202ECFBA0000EF74 /* XC_EmojikeyTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1EE202ECFBA0000EF74 /* XC_EmojikeyTabbar.m */; };
 		241D1E8620303DAD00B7C0D2 /* XC_EmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 241D1E8520303DAD00B7C0D2 /* XC_EmotionTextView.m */; };
 		2424EEA3202D804500BD28E6 /* XCEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424EEA1202D804500BD28E6 /* XCEmotionTool.m */; };
 		2424EEA9202D9CFF00BD28E6 /* XCEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424EEA8202D9CFF00BD28E6 /* XCEmotionModel.m */; };
 		244DA86F202B0DAA003328D2 /* XEmotionIcons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 244DA86E202B0DAA003328D2 /* XEmotionIcons.bundle */; };
+		24BDE16B204156D00035C7AD /* XC_NSTextEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */; };
+		24BDE16E20415FF80035C7AD /* UITextView+XCextention.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDE16D20415FF80035C7AD /* UITextView+XCextention.m */; };
+		24BDE171204163330035C7AD /* XC_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDE16F204163320035C7AD /* XC_TextView.m */; };
 		F75B00CF1FECE8C6003AA045 /* JGGDemo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75B00CE1FECE8C6003AA045 /* JGGDemo2ViewController.m */; };
 		F75B00E81FED01E3003AA045 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F75B00D21FED01E3003AA045 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		F75B00E91FED01E3003AA045 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F75B00DE1FED01E3003AA045 /* MASCompositeConstraint.m */; };
@@ -156,16 +158,14 @@
 		2408A1E0202ECFBA0000EF74 /* XC_pageShowemotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_pageShowemotionView.h; sourceTree = "<group>"; };
 		2408A1E1202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_EmojiTabarCollectionViewCell.h; sourceTree = "<group>"; };
 		2408A1E2202ECFBA0000EF74 /* XC_EmojikeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_EmojikeyBoardView.m; sourceTree = "<group>"; };
-		2408A1E3202ECFBA0000EF74 /* XC_TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_TextView.m; sourceTree = "<group>"; };
-		2408A1E4202ECFBA0000EF74 /* XC_ keyboardTopTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XC_ keyboardTopTools.h"; sourceTree = "<group>"; };
+		2408A1E4202ECFBA0000EF74 /* XC_keyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_keyboardManager.h; sourceTree = "<group>"; };
 		2408A1E5202ECFBA0000EF74 /* XC_EmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_EmotionListView.h; sourceTree = "<group>"; };
 		2408A1E6202ECFBA0000EF74 /* XC_EmojikeyTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_EmojikeyTabbar.h; sourceTree = "<group>"; };
 		2408A1E7202ECFBA0000EF74 /* XC_EmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_EmotionButton.m; sourceTree = "<group>"; };
 		2408A1E8202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_EmojiTabarCollectionViewCell.m; sourceTree = "<group>"; };
 		2408A1E9202ECFBA0000EF74 /* XC_pageShowemotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_pageShowemotionView.m; sourceTree = "<group>"; };
-		2408A1EA202ECFBA0000EF74 /* XC_TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_TextView.h; sourceTree = "<group>"; };
 		2408A1EB202ECFBA0000EF74 /* XC_EmojikeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_EmojikeyBoardView.h; sourceTree = "<group>"; };
-		2408A1EC202ECFBA0000EF74 /* XC_ keyboardTopTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XC_ keyboardTopTools.m"; sourceTree = "<group>"; };
+		2408A1EC202ECFBA0000EF74 /* XC_keyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_keyboardManager.m; sourceTree = "<group>"; };
 		2408A1ED202ECFBA0000EF74 /* XC_EmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_EmotionListView.m; sourceTree = "<group>"; };
 		2408A1EE202ECFBA0000EF74 /* XC_EmojikeyTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_EmojikeyTabbar.m; sourceTree = "<group>"; };
 		241D1E8420303DAD00B7C0D2 /* XC_EmotionTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XC_EmotionTextView.h; sourceTree = "<group>"; };
@@ -175,6 +175,12 @@
 		2424EEA7202D9CFF00BD28E6 /* XCEmotionModel.h */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = XCEmotionModel.h; sourceTree = "<group>"; };
 		2424EEA8202D9CFF00BD28E6 /* XCEmotionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCEmotionModel.m; sourceTree = "<group>"; };
 		244DA86E202B0DAA003328D2 /* XEmotionIcons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XEmotionIcons.bundle; sourceTree = "<group>"; };
+		24BDE169204156CF0035C7AD /* XC_NSTextEmotionAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XC_NSTextEmotionAttachment.h; sourceTree = "<group>"; };
+		24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XC_NSTextEmotionAttachment.m; sourceTree = "<group>"; };
+		24BDE16C20415FF80035C7AD /* UITextView+XCextention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+XCextention.h"; sourceTree = "<group>"; };
+		24BDE16D20415FF80035C7AD /* UITextView+XCextention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+XCextention.m"; sourceTree = "<group>"; };
+		24BDE16F204163320035C7AD /* XC_TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_TextView.m; sourceTree = "<group>"; };
+		24BDE170204163330035C7AD /* XC_TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_TextView.h; sourceTree = "<group>"; };
 		F75B00CD1FECE8C6003AA045 /* JGGDemo2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGGDemo2ViewController.h; sourceTree = "<group>"; };
 		F75B00CE1FECE8C6003AA045 /* JGGDemo2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGGDemo2ViewController.m; sourceTree = "<group>"; };
 		F75B00D11FED01E3003AA045 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -436,6 +442,7 @@
 		1867CF921FEA071500AE7F15 /* XC_InputView */ = {
 			isa = PBXGroup;
 			children = (
+				24BDE1682041504B0035C7AD /* XC_Attachment */,
 				241D1E8820303FE500B7C0D2 /* XC_Category */,
 				2408A1DE202ECFBA0000EF74 /* XC_keyBoardkey */,
 				2424EEA4202D807500BD28E6 /* XCEmotionModel */,
@@ -448,12 +455,10 @@
 		2408A1DE202ECFBA0000EF74 /* XC_keyBoardkey */ = {
 			isa = PBXGroup;
 			children = (
-				2408A1E4202ECFBA0000EF74 /* XC_ keyboardTopTools.h */,
-				2408A1EC202ECFBA0000EF74 /* XC_ keyboardTopTools.m */,
-				2408A1EA202ECFBA0000EF74 /* XC_TextView.h */,
-				2408A1E3202ECFBA0000EF74 /* XC_TextView.m */,
 				241D1E8420303DAD00B7C0D2 /* XC_EmotionTextView.h */,
 				241D1E8520303DAD00B7C0D2 /* XC_EmotionTextView.m */,
+				2408A1E4202ECFBA0000EF74 /* XC_keyboardManager.h */,
+				2408A1EC202ECFBA0000EF74 /* XC_keyboardManager.m */,
 				2408A1E1202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.h */,
 				2408A1E8202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.m */,
 				2408A1E6202ECFBA0000EF74 /* XC_EmojikeyTabbar.h */,
@@ -473,6 +478,10 @@
 		241D1E8820303FE500B7C0D2 /* XC_Category */ = {
 			isa = PBXGroup;
 			children = (
+				24BDE170204163330035C7AD /* XC_TextView.h */,
+				24BDE16F204163320035C7AD /* XC_TextView.m */,
+				24BDE16C20415FF80035C7AD /* UITextView+XCextention.h */,
+				24BDE16D20415FF80035C7AD /* UITextView+XCextention.m */,
 			);
 			path = XC_Category;
 			sourceTree = "<group>";
@@ -493,8 +502,17 @@
 			children = (
 				2424EEA7202D9CFF00BD28E6 /* XCEmotionModel.h */,
 				2424EEA8202D9CFF00BD28E6 /* XCEmotionModel.m */,
+				24BDE169204156CF0035C7AD /* XC_NSTextEmotionAttachment.h */,
+				24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */,
 			);
 			path = XCEmotionModel;
+			sourceTree = "<group>";
+		};
+		24BDE1682041504B0035C7AD /* XC_Attachment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XC_Attachment;
 			sourceTree = "<group>";
 		};
 		F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(输入框自适应) */ = {
@@ -693,12 +711,11 @@
 				F75B00EC1FED01E3003AA045 /* NSArray+MASAdditions.m in Sources */,
 				2424EEA9202D9CFF00BD28E6 /* XCEmotionModel.m in Sources */,
 				18102DF71FE7D50700AFD76A /* testTableViewCell.m in Sources */,
-				2408A1F0202ECFBA0000EF74 /* XC_TextView.m in Sources */,
 				18102DF21FE7D4D100AFD76A /* JGGDemoViewController.m in Sources */,
 				18102DCD1FE7CEA000AFD76A /* SDWebImageDownloaderOperation.m in Sources */,
 				F75B00F41FED05C1003AA045 /* XC_AutoTextView.m in Sources */,
 				18102DD61FE7CEA000AFD76A /* UIView+WebCacheOperation.m in Sources */,
-				2408A1F4202ECFBA0000EF74 /* XC_ keyboardTopTools.m in Sources */,
+				2408A1F4202ECFBA0000EF74 /* XC_keyboardManager.m in Sources */,
 				18389D001FE8BE39009DFCC1 /* JGGDemo1ViewController.m in Sources */,
 				184328DB1FC81C1D00BB4D84 /* ViewController.m in Sources */,
 				F75B00CF1FECE8C6003AA045 /* JGGDemo2ViewController.m in Sources */,
@@ -709,6 +726,7 @@
 				F75B00F01FED01E3003AA045 /* MASViewAttribute.m in Sources */,
 				18102DCF1FE7CEA000AFD76A /* SDWebImagePrefetcher.m in Sources */,
 				18102DCC1FE7CEA000AFD76A /* SDWebImageDownloader.m in Sources */,
+				24BDE171204163330035C7AD /* XC_TextView.m in Sources */,
 				184328D81FC81C1D00BB4D84 /* AppDelegate.m in Sources */,
 				F75B00EE1FED01E3003AA045 /* MASConstraint.m in Sources */,
 				2408A1F5202ECFBA0000EF74 /* XC_EmotionListView.m in Sources */,
@@ -726,8 +744,10 @@
 				18102DCA1FE7CEA000AFD76A /* SDWebImageCompat.m in Sources */,
 				184328D51FC81C1D00BB4D84 /* main.m in Sources */,
 				2408A1F1202ECFBA0000EF74 /* XC_EmotionButton.m in Sources */,
+				24BDE16B204156D00035C7AD /* XC_NSTextEmotionAttachment.m in Sources */,
 				18102DE01FE7CFE600AFD76A /* XC_JGGView.m in Sources */,
 				18102DD21FE7CEA000AFD76A /* UIImage+MultiFormat.m in Sources */,
+				24BDE16E20415FF80035C7AD /* UITextView+XCextention.m in Sources */,
 				18102DD41FE7CEA000AFD76A /* UIImageView+HighlightedWebCache.m in Sources */,
 				2408A1F2202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.m in Sources */,
 				18102DD11FE7CEA000AFD76A /* UIImage+GIF.m in Sources */,

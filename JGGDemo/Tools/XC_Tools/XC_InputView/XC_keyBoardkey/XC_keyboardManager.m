@@ -9,11 +9,12 @@
 #define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
 
 
-#import "XC_ keyboardTopTools.h"
+#import "XC_keyboardManager.h"
 #import "XCEmotionModel.h"
+
 CGFloat inputHeight = 34 ;//输入框的默认高度
 
-@interface XC__keyboardTopTools()
+@interface XC_keyboardManager()
 
 @property (nonatomic, weak) UIButton *emotionButton;
 
@@ -22,7 +23,7 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
 
 @end
 
-@implementation XC__keyboardTopTools
+@implementation XC_keyboardManager
 
 
 
@@ -45,16 +46,13 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     //创建发送
     [self setupBtn:@"nil" highImage:@"nil" type:XC_ComposeToolbarButtonTypeSend Andtitle:@"发送"];
     
-    XC_TextView *inputTextView = [[XC_TextView alloc] init];
+    XC_EmotionTextView *inputTextView = [[XC_EmotionTextView alloc] init];
     inputTextView.tag = XC_ComposeToolbarButtonTypeInputView ;
     [inputTextView addBorder:[UIColor lightGrayColor] Andcircular:15];
     self.inputTextHeight = inputHeight ; //默认输入框高度为 34
 
-
     /**   监听表情被选中  */
     [XCNotificationCenter addObserver:self selector:@selector(emotionDidSelect:) name:XC_EmotionDidSelectNotification object:nil];
-
-    
     [self addSubview:inputTextView];
 
 }
@@ -63,12 +61,11 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
 - (void)emotionDidSelect:(NSNotification *)notification
 {
     XCEmotionModel *emotion = notification.userInfo[XC_SelectEmotionKey];
-    XCLog(@"emotion.chs = %@" ,emotion.chs);
-    XC_TextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
-    inputTextView.text = [NSString stringWithFormat:@"%@%@",inputTextView.text,emotion.chs];
-    
+//    XCLog(@"emotion.chs = %@" ,emotion.chs);
+    XC_EmotionTextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+//    inputTextView.text = [NSString stringWithFormat:@"%@%@",inputTextView.text,emotion.chs];
+    [inputTextView insertEmotion:emotion];
 }
-
 
 /**
  * 创建一个按钮
@@ -138,7 +135,7 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     }];
     
     /*   输入框  **/
-    XC_TextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+    XC_EmotionTextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
     inputTextView.maxInputWord = 100; //最大输入100.默认不限
     inputTextView.placeholderString = @"请输入";
     [inputTextView setPlaceHolderOffsetY:8];
@@ -161,15 +158,12 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     };
 }
 
--(XC_TextView *)showXCKeyboard
+-(XC_EmotionTextView *)showXCKeyboard
 {
-    XC_TextView *textview = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+    XC_EmotionTextView *textview = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
     [textview becomeFirstResponder];
     return textview;
 }
-
-
-
 
 
 /*   计算高度  **/
@@ -183,7 +177,6 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
 - (void)btnClick:(UIButton *)btn
 {
     if ([self.delegate respondsToSelector:@selector(composeToolbar:didClickButton:)]) {
-       
         [self.delegate composeToolbar:self didClickButton:btn.tag];
     }
 }

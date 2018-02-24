@@ -8,7 +8,7 @@
 
 #import "JGGDemo2ViewController.h"
 #import "XC_TextView.h"
-#import "XC_ keyboardTopTools.h"
+#import "XC_keyboardManager.h"
 #import "XC_EmojikeyBoardView.h"
 #import "XCEmotionTool.h"
 
@@ -17,7 +17,7 @@
     XC_TextView *_xc_textView;
 }
 /**    输入框      ****/
-@property (nonatomic,strong)XC__keyboardTopTools *topTools;
+@property (nonatomic,strong)XC_keyboardManager *topTools;
 /** 是否正在切换键盘 */
 @property (nonatomic, assign) BOOL switchingKeybaord;
 
@@ -58,7 +58,7 @@
 -(void)setUI
 {
     
-    self.topTools = [[XC__keyboardTopTools alloc] initWithFrame:CGRectMake(0, KmainScreenHeiht - 106, KmainScreenWidth, 106)];
+    self.topTools = [[XC_keyboardManager alloc] initWithFrame:CGRectMake(0, KmainScreenHeiht - 106, KmainScreenWidth, 106)];
     self.topTools.showKeyboardButton = YES ;
     self.topTools.delegate = self ;
     self.topTools.backgroundColor = [UIColor yellowColor];
@@ -108,7 +108,7 @@
 
 #pragma mark XCComposeToolbarTopDelegate
 
--(void)composeToolbar:(XC__keyboardTopTools *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType
+-(void)composeToolbar:(XC_keyboardManager *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType
 {
     switch (buttonType) {
         case XC_ComposeToolbarButtonTypeEmotion:

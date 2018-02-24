@@ -72,5 +72,30 @@ static NSArray  *_defaultEmotions , *_lxhEmotions , *_qqEmtions;
     return _qqEmtions;
 }
 
++(UIImage *)getSelectEmtionImage:(XCEmotionModel *)emtionModel
+{
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"XEmotionIcons" ofType:@"bundle"];
+    NSString * path;
+    
+    switch (emtionModel.xcemotionType) {
+        case XCentionModelTypeDefault: //默认表情
+            path = [NSString stringWithFormat:@"%@/default",bundlePath];
+            break;
+        case XCentionModelTypeLxh:
+            path = [NSString stringWithFormat:@"%@/lxh",bundlePath];
+            break;
+        case XCentionModelTypeQQ:
+            path = [NSString stringWithFormat:@"%@/QQEmotion",bundlePath];
+            
+            break;
+        default:
+            break;
+    }
+    
+    UIImage *img = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",path,emtionModel.png]];
+    return img ;
+}
+
+
 
 @end

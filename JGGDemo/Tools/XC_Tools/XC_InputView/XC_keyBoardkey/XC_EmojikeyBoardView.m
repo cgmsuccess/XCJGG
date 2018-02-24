@@ -85,6 +85,8 @@
     return _defaultListView;
 }
 
+
+#warning DOTO 这里设置了异步读取图片数据，有几率照常，键盘的图片为空
 /**   浪小花表情  */
 -(XC_EmotionListView *)lxhListView
 {

@@ -7,7 +7,7 @@
 //
 
 #import "XC_EmotionButton.h"
-
+#import "XCEmotionTool.h"
 @implementation XC_EmotionButton
 
 /**
@@ -53,26 +53,9 @@
 -(void)setEmotionModel:(XCEmotionModel *)emotionModel
 {
     _emotionModel = emotionModel ;
-    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"XEmotionIcons" ofType:@"bundle"];
-    NSString * path;
-
-    switch (emotionModel.xcemotionType) {
-        case XCentionModelTypeDefault: //默认表情
-            path = [NSString stringWithFormat:@"%@/default",bundlePath];
-            break;
-        case XCentionModelTypeLxh:
-            path = [NSString stringWithFormat:@"%@/lxh",bundlePath];
-            break;
-        case XCentionModelTypeQQ:
-            path = [NSString stringWithFormat:@"%@/QQEmotion",bundlePath];
-
-            break;
-        default:
-            break;
-    }
     
-    UIImage *img = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",path,emotionModel.png]];
-
+    UIImage *img = [XCEmotionTool getSelectEmtionImage:emotionModel];
+    
     [self setImage:img forState:UIControlStateNormal];
 }
 

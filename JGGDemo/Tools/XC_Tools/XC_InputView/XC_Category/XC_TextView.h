@@ -42,7 +42,7 @@
 @property (nonatomic,assign)NSInteger maxInputWord ;
 
 /**    已经输入了多少字回调      ****/
-@property (nonatomic,copy)void(^inputTextHandle)(NSString * _Nullable inputString);
+@property (nonatomic,copy)void(^ _Nullable inputTextHandle)(NSString * _Nullable inputString);
 
 
 /**
