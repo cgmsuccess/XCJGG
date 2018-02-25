@@ -13,7 +13,7 @@
 @implementation XC_EmotionTextView
 
 
-//插入图片模型到UItextFile 并显示
+//插入图片模型到UItextView 并显示
 -(void)insertEmotion:(XCEmotionModel *)emotion
 {
     XC_NSTextEmotionAttachment *xc_arrach = [[XC_NSTextEmotionAttachment alloc] init];
@@ -31,6 +31,24 @@
         // 设置字体
         [attributedText addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attributedText.length)];
     }];
+}
+
+- (NSString *)fullText
+{
+    NSMutableString *fullText = [NSMutableString string];
+    // 遍历所有的属性文字（图片、emoji、普通文字）
+    [self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+        // 如果是图片表情
+        XC_NSTextEmotionAttachment *attch = attrs[@"NSAttachment"];
+        if (attch) { // 图片
+            [fullText appendString:attch.emotionModel.chs];
+        } else { // emoji、普通文本
+            // 获得这个范围内的文字
+            NSAttributedString *str = [self.attributedText attributedSubstringFromRange:range];
+            [fullText appendString:str.string];
+        }
+    }];
+    return fullText;
 }
 
 

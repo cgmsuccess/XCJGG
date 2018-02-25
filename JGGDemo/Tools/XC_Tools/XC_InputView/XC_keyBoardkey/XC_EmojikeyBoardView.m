@@ -92,9 +92,10 @@
 {
     if (!_lxhListView) {
         _lxhListView = [[XC_EmotionListView alloc] init];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            _lxhListView.EmotionArrs = [XCEmotionTool lxhEmtions];
-        });
+        _lxhListView.EmotionArrs = [XCEmotionTool lxhEmtions];
+
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        });
     }
     return _lxhListView;
 }
@@ -104,9 +105,10 @@
 {
     if (!_qqListView) {
         _qqListView = [[XC_EmotionListView alloc] init];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            _qqListView.EmotionArrs = [XCEmotionTool qqEmtions];
-        });
+        _qqListView.EmotionArrs = [XCEmotionTool qqEmtions];
+
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        });
     }
     return _qqListView;
 }

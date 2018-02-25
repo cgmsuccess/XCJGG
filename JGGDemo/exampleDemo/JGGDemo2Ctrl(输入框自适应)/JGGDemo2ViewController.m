@@ -12,7 +12,9 @@
 #import "XC_EmojikeyBoardView.h"
 #import "XCEmotionTool.h"
 
-@interface JGGDemo2ViewController ()<UITextViewDelegate,XCComposeToolbarTopDelegate>
+
+
+@interface JGGDemo2ViewController ()<UITextViewDelegate,XCComposeToolbarTopDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     XC_TextView *_xc_textView;
 }
@@ -20,14 +22,27 @@
 @property (nonatomic,strong)XC_keyboardManager *topTools;
 /** 是否正在切换键盘 */
 @property (nonatomic, assign) BOOL switchingKeybaord;
-
 /**     表情键盘   ****/
 @property (nonatomic,strong)XC_EmojikeyBoardView *emotionKeyboard;
+
+/**     UITableView     ****/
+@property (nonatomic,strong)UITableView *tableView ;
+
+/**     DataSource     ****/
+@property (nonatomic,strong)NSMutableArray *DataSource;
 
 @end
 
 
 @implementation JGGDemo2ViewController
+
+-(NSMutableArray *)DataSource
+{
+    if (!_DataSource) {
+        _DataSource = [NSMutableArray new];
+    }
+    return _DataSource ;
+}
 
 -(XC_EmojikeyBoardView *)emotionKeyboard
 {
@@ -41,15 +56,23 @@
     return _emotionKeyboard;
 }
 
+-(UITableView *)tableView
+{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _tableView.delegate = self;
+        _tableView.dataSource =self ;
+    }
+    return _tableView ;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.view.backgroundColor = [UIColor whiteColor];
-    self.automaticallyAdjustsScrollViewInsets = NO ;
-    
-    
+//    self.automaticallyAdjustsScrollViewInsets = NO ;
+//    self.navigationController.automaticallyAdjustsScrollViewInsets = NO ;
     [self setUI];
 }
 
@@ -65,6 +88,8 @@
     self.topTools.stringAndHeightHandle = ^(NSString *inputString, CGFloat height) {
         
     };
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.view addSubview:self.tableView];
     [self.view addSubview:self.topTools];
     
     // 键盘通知
@@ -123,11 +148,20 @@
         case XC_ComposeToolbarButtonTypeSend:
             //发送
             [self.view endEditing:YES];
-
+            [self sendMassge:toolbar];
             break;
         default:
             break;
     }
+}
+
+/**  发送消息   */
+-(void)sendMassge:(XC_keyboardManager *)keyboardView
+{
+    XC_EmotionTextView *emtionsTextView = [keyboardView viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+    XCLog(@"emtionsTextView.text = %@" , [emtionsTextView fullText]);
+    [self.DataSource addObject:[emtionsTextView fullText]];
+    [self.tableView reloadData];
 }
 
 //切换键盘
@@ -160,8 +194,41 @@
         _xc_textView = [self.topTools showXCKeyboard];
         
     });
-
 }
+
+
+#pragma mark UItableViewDelegate UItaleViewDataSorce
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.DataSource.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    NSString *cellText = self.DataSource[indexPath.row];
+    cell.textLabel.text = cellText ;
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.textLabel.font = [UIFont fontWithName:@"Verdana" size:14];
+    cell.textLabel.numberOfLines = 0 ;
+    return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellText = self.DataSource[indexPath.row];
+    CGFloat rowHeight = [self autoHeightWithString:cellText Width:KmainScreenWidth - 16 Font:14 ];
+    return rowHeight;
+}
+
+/*   计算高度  **/
+- (CGFloat)autoHeightWithString:(NSString *)string Width:(CGFloat)width Font:(NSInteger)font {
+    
+    CGSize size = [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size;
+    return size.height;
+}
+
 
 
 - (void)didReceiveMemoryWarning {

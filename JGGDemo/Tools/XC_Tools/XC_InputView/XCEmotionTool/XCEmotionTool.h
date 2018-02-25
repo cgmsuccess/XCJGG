@@ -26,8 +26,9 @@
 /**  qq表情   */
 + (NSArray *)qqEmtions;
 
-
 /**  根据模型获取到单独的某一个表情图片   */
 +(UIImage *)getSelectEmtionImage:(XCEmotionModel *)emtionModel;
 
 @end
+
+

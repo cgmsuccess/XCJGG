@@ -151,7 +151,6 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     WS(weakSelf);
     //输入字的实时回调
     inputTextView.inputTextHandle = ^(NSString *inputString) {
-        
         CGFloat textViewHeight = [weakSelf autoHeightWithString:inputString Width:KmainScreenWidth - 48 - 10 - 10 - 8 Font:14];
         XCLog(@"textViewHeight = %lf" ,textViewHeight) ;
         weakSelf.stringAndHeightHandle(inputString, textViewHeight);
@@ -165,10 +164,9 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     return textview;
 }
 
-
 /*   计算高度  **/
 - (CGFloat)autoHeightWithString:(NSString *)string Width:(CGFloat)width Font:(NSInteger)font {
-    
+
     CGSize size = [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size;
     return size.height;
 }
@@ -179,9 +177,8 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     if ([self.delegate respondsToSelector:@selector(composeToolbar:didClickButton:)]) {
         [self.delegate composeToolbar:self didClickButton:btn.tag];
     }
+
 }
-
-
 
 -(void)drawRect:(CGRect)rect
 {

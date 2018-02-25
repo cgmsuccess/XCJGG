@@ -442,7 +442,6 @@
 		1867CF921FEA071500AE7F15 /* XC_InputView */ = {
 			isa = PBXGroup;
 			children = (
-				24BDE1682041504B0035C7AD /* XC_Attachment */,
 				241D1E8820303FE500B7C0D2 /* XC_Category */,
 				2408A1DE202ECFBA0000EF74 /* XC_keyBoardkey */,
 				2424EEA4202D807500BD28E6 /* XCEmotionModel */,
@@ -506,13 +505,6 @@
 				24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */,
 			);
 			path = XCEmotionModel;
-			sourceTree = "<group>";
-		};
-		24BDE1682041504B0035C7AD /* XC_Attachment */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = XC_Attachment;
 			sourceTree = "<group>";
 		};
 		F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(输入框自适应) */ = {

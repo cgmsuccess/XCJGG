@@ -16,4 +16,8 @@
 -(void)insertEmotion:(XCEmotionModel *)emotion;
 
 
+/**  把属性文字和文字转成 纯文字   */
+- (NSString *)fullText;
+
+
 @end
