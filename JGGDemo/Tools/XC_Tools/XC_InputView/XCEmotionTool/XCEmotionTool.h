@@ -29,6 +29,13 @@
 /**  根据模型获取到单独的某一个表情图片   */
 +(UIImage *)getSelectEmtionImage:(XCEmotionModel *)emtionModel;
 
+/**
+ *  通过 表情描述找到对应的 表情模型
+ *  @param chs 表情描述
+ */
++ (XCEmotionModel *)emotionWithChs:(NSString *)chs;
+
+
 @end
 
 

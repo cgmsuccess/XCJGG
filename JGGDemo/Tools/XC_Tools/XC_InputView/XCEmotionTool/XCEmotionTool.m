@@ -86,7 +86,6 @@ static NSArray  *_defaultEmotions , *_lxhEmotions , *_qqEmtions;
             break;
         case XCentionModelTypeQQ:
             path = [NSString stringWithFormat:@"%@/QQEmotion",bundlePath];
-            
             break;
         default:
             break;
@@ -96,7 +95,24 @@ static NSArray  *_defaultEmotions , *_lxhEmotions , *_qqEmtions;
     return img ;
 }
 
-
++(XCEmotionModel *)emotionWithChs:(NSString *)chs
+{
+    NSArray *defaultEmotions = [self defaultEmotions];
+    for (XCEmotionModel *emotion in defaultEmotions) {
+        if ([emotion.chs isEqualToString:chs]) return emotion;
+    }
+    
+    NSArray *lxhEmotions = [self lxhEmtions];
+    for (XCEmotionModel *emotion in lxhEmotions) {
+        if ([emotion.chs isEqualToString:chs]) return emotion;
+    }
+    
+    NSArray *qqEmtions = [self qqEmtions];
+    for (XCEmotionModel *emotion in qqEmtions) {
+        if ([emotion.chs isEqualToString:chs]) return emotion;
+    }
+    return nil;
+}
 
 
 

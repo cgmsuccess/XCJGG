@@ -51,6 +51,9 @@
 		241D1E8620303DAD00B7C0D2 /* XC_EmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 241D1E8520303DAD00B7C0D2 /* XC_EmotionTextView.m */; };
 		2424EEA3202D804500BD28E6 /* XCEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424EEA1202D804500BD28E6 /* XCEmotionTool.m */; };
 		2424EEA9202D9CFF00BD28E6 /* XCEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424EEA8202D9CFF00BD28E6 /* XCEmotionModel.m */; };
+		2443721820439D87002620AE /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2443721720439D87002620AE /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2443721B2043A378002620AE /* XCWordChangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2443721A2043A378002620AE /* XCWordChangeTool.m */; };
+		2443721E2043AA8E002620AE /* XCtextExchangeAttachModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2443721D2043AA8E002620AE /* XCtextExchangeAttachModel.m */; };
 		244DA86F202B0DAA003328D2 /* XEmotionIcons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 244DA86E202B0DAA003328D2 /* XEmotionIcons.bundle */; };
 		24BDE16B204156D00035C7AD /* XC_NSTextEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */; };
 		24BDE16E20415FF80035C7AD /* UITextView+XCextention.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDE16D20415FF80035C7AD /* UITextView+XCextention.m */; };
@@ -174,6 +177,12 @@
 		2424EEA2202D804500BD28E6 /* XCEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCEmotionTool.h; sourceTree = "<group>"; };
 		2424EEA7202D9CFF00BD28E6 /* XCEmotionModel.h */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = XCEmotionModel.h; sourceTree = "<group>"; };
 		2424EEA8202D9CFF00BD28E6 /* XCEmotionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCEmotionModel.m; sourceTree = "<group>"; };
+		2443721620439D87002620AE /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		2443721720439D87002620AE /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		244372192043A378002620AE /* XCWordChangeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCWordChangeTool.h; sourceTree = "<group>"; };
+		2443721A2043A378002620AE /* XCWordChangeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCWordChangeTool.m; sourceTree = "<group>"; };
+		2443721C2043AA8E002620AE /* XCtextExchangeAttachModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCtextExchangeAttachModel.h; sourceTree = "<group>"; };
+		2443721D2043AA8E002620AE /* XCtextExchangeAttachModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCtextExchangeAttachModel.m; sourceTree = "<group>"; };
 		244DA86E202B0DAA003328D2 /* XEmotionIcons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XEmotionIcons.bundle; sourceTree = "<group>"; };
 		24BDE169204156CF0035C7AD /* XC_NSTextEmotionAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XC_NSTextEmotionAttachment.h; sourceTree = "<group>"; };
 		24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XC_NSTextEmotionAttachment.m; sourceTree = "<group>"; };
@@ -442,6 +451,7 @@
 		1867CF921FEA071500AE7F15 /* XC_InputView */ = {
 			isa = PBXGroup;
 			children = (
+				2443721520439D87002620AE /* RegexKitLite */,
 				241D1E8820303FE500B7C0D2 /* XC_Category */,
 				2408A1DE202ECFBA0000EF74 /* XC_keyBoardkey */,
 				2424EEA4202D807500BD28E6 /* XCEmotionModel */,
@@ -492,6 +502,8 @@
 				2424EEA1202D804500BD28E6 /* XCEmotionTool.m */,
 				2408A1A9202ECCC60000EF74 /* XCEmotionDefine.h */,
 				2408A1AA202ECCC60000EF74 /* XCEmotionDefine.m */,
+				244372192043A378002620AE /* XCWordChangeTool.h */,
+				2443721A2043A378002620AE /* XCWordChangeTool.m */,
 			);
 			path = XCEmotionTool;
 			sourceTree = "<group>";
@@ -503,8 +515,19 @@
 				2424EEA8202D9CFF00BD28E6 /* XCEmotionModel.m */,
 				24BDE169204156CF0035C7AD /* XC_NSTextEmotionAttachment.h */,
 				24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */,
+				2443721C2043AA8E002620AE /* XCtextExchangeAttachModel.h */,
+				2443721D2043AA8E002620AE /* XCtextExchangeAttachModel.m */,
 			);
 			path = XCEmotionModel;
+			sourceTree = "<group>";
+		};
+		2443721520439D87002620AE /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				2443721620439D87002620AE /* RegexKitLite.h */,
+				2443721720439D87002620AE /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 		F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(输入框自适应) */ = {
@@ -698,6 +721,7 @@
 				2408A1F3202ECFBA0000EF74 /* XC_pageShowemotionView.m in Sources */,
 				18102DCE1FE7CEA000AFD76A /* SDWebImageManager.m in Sources */,
 				18102DC91FE7CEA000AFD76A /* SDImageCache.m in Sources */,
+				2443721B2043A378002620AE /* XCWordChangeTool.m in Sources */,
 				F75B00E81FED01E3003AA045 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				F75B00E91FED01E3003AA045 /* MASCompositeConstraint.m in Sources */,
 				F75B00EC1FED01E3003AA045 /* NSArray+MASAdditions.m in Sources */,
@@ -711,6 +735,7 @@
 				18389D001FE8BE39009DFCC1 /* JGGDemo1ViewController.m in Sources */,
 				184328DB1FC81C1D00BB4D84 /* ViewController.m in Sources */,
 				F75B00CF1FECE8C6003AA045 /* JGGDemo2ViewController.m in Sources */,
+				2443721820439D87002620AE /* RegexKitLite.m in Sources */,
 				2424EEA3202D804500BD28E6 /* XCEmotionTool.m in Sources */,
 				18102DD01FE7CEA000AFD76A /* UIButton+WebCache.m in Sources */,
 				18102DC81FE7CEA000AFD76A /* NSData+ImageContentType.m in Sources */,
@@ -726,6 +751,7 @@
 				F75B00EA1FED01E3003AA045 /* MASConstraintMaker.m in Sources */,
 				F75B00EB1FED01E3003AA045 /* MASLayoutConstraint.m in Sources */,
 				2408A1AB202ECCC60000EF74 /* XCEmotionDefine.m in Sources */,
+				2443721E2043AA8E002620AE /* XCtextExchangeAttachModel.m in Sources */,
 				F75B00ED1FED01E3003AA045 /* View+MASAdditions.m in Sources */,
 				18102DD51FE7CEA000AFD76A /* UIImageView+WebCache.m in Sources */,
 				18102DCB1FE7CEA000AFD76A /* SDWebImageDecoder.m in Sources */,
@@ -897,6 +923,7 @@
 				INFOPLIST_FILE = JGGDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.xc.JGGDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -911,6 +938,7 @@
 				INFOPLIST_FILE = JGGDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.xc.JGGDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

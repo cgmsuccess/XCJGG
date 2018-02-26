@@ -11,7 +11,7 @@
 #import "XC_keyboardManager.h"
 #import "XC_EmojikeyBoardView.h"
 #import "XCEmotionTool.h"
-
+#import "XCWordChangeTool.h"
 
 
 @interface JGGDemo2ViewController ()<UITextViewDelegate,XCComposeToolbarTopDelegate,UITableViewDataSource,UITableViewDelegate>
@@ -208,10 +208,11 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     NSString *cellText = self.DataSource[indexPath.row];
-    cell.textLabel.text = cellText ;
+
+    cell.textLabel.attributedText = [XCWordChangeTool attributedTextWithText:cellText] ;
     cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.textLabel.font = [UIFont fontWithName:@"Verdana" size:14];
     cell.textLabel.numberOfLines = 0 ;
+    
     return cell;
 }
 
@@ -228,8 +229,6 @@
     CGSize size = [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size;
     return size.height;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
