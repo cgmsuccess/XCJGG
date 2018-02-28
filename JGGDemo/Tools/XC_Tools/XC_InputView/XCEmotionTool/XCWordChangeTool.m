@@ -110,4 +110,21 @@
     return attributedText;
 }
 
+
+/*  普通文字 计算高度  **/
++(CGFloat)autoHeightWithString:(NSString *)string Width:(CGFloat)width Font:(NSInteger)font {
+    
+    CGSize size = [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size;
+    return size.height ;
+}
+
+/**  富文本计算高度   */
++(CGFloat )autoHeightWithAttrebutString:(NSAttributedString *)attributStr AndscreenWidth:(CGFloat)screenWidth
+{
+    CGSize contentSize = [attributStr boundingRectWithSize:CGSizeMake(screenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    return contentSize.height + 21 ;
+}
+
+
+
 @end

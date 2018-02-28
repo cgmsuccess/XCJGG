@@ -11,15 +11,24 @@
 
 #import "XC_keyboardManager.h"
 #import "XCEmotionModel.h"
+#import "XC_EmojikeyBoardView.h"
+
 
 CGFloat inputHeight = 34 ;//输入框的默认高度
+CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 
 @interface XC_keyboardManager()
 
 @property (nonatomic, weak) UIButton *emotionButton;
 
-/**    输入框的默认高度      ****/
-@property (nonatomic,assign)CGFloat inputTextHeight ;
+/**     表情键盘   ****/
+@property (nonatomic,strong)XC_EmojikeyBoardView *emotionKeyboard;
+
+/** 是否正在切换键盘 */
+@property (nonatomic, assign) BOOL switchingKeybaord;
+
+/**    记录初始化的时候y 值      ****/
+@property (nonatomic,assign)CGFloat keyBoardY ;
 
 @end
 
@@ -35,6 +44,20 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     return self;
 }
 
+
+-(XC_EmojikeyBoardView *)emotionKeyboard
+{
+    if (!_emotionKeyboard) {
+        self.emotionKeyboard = [[XC_EmojikeyBoardView alloc] init];
+        // 键盘的宽度
+        self.emotionKeyboard.width = KmainScreenWidth;
+        self.emotionKeyboard.height = keyboardHeight;
+        self.emotionKeyboard.backgroundColor = [UIColor whiteColor];
+    }
+    return _emotionKeyboard;
+}
+
+
 -(void)setUI
 {
     //创建切换键盘
@@ -49,22 +72,24 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     XC_EmotionTextView *inputTextView = [[XC_EmotionTextView alloc] init];
     inputTextView.tag = XC_ComposeToolbarButtonTypeInputView ;
     [inputTextView addBorder:[UIColor lightGrayColor] Andcircular:15];
-    self.inputTextHeight = inputHeight ; //默认输入框高度为 34
 
+   
     /**   监听表情被选中  */
     [XCNotificationCenter addObserver:self selector:@selector(emotionDidSelect:) name:XC_EmotionDidSelectNotification object:nil];
+    
+    /**  键盘弹出   */
+    [XCNotificationCenter  addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+   
+    /**   键盘隐藏  */
+    [XCNotificationCenter  addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    /**   监听删除按钮  */
+    [XCNotificationCenter  addObserver:self selector:@selector(emotionDelete) name:XC_EmotionDidDeleteNotification object:nil];
+    
+    _keyBoardY = self.y ;
+    
     [self addSubview:inputTextView];
 
-}
-
-/**  表情被选中了   */
-- (void)emotionDidSelect:(NSNotification *)notification
-{
-    XCEmotionModel *emotion = notification.userInfo[XC_SelectEmotionKey];
-//    XCLog(@"emotion.chs = %@" ,emotion.chs);
-    XC_EmotionTextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
-//    inputTextView.text = [NSString stringWithFormat:@"%@%@",inputTextView.text,emotion.chs];
-    [inputTextView insertEmotion:emotion];
 }
 
 /**
@@ -100,6 +125,59 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     [self.emotionButton setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [self.emotionButton setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
 }
+
+/**  键盘弹出   */
+- (void)keyboardWillShow:(NSNotification *)notification {
+    
+    // 获取通知的信息字典
+    NSDictionary *userInfo = [notification userInfo];
+    
+    // 获取键盘弹出后的rect
+    NSValue* aValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGRect keyboardRect = [aValue CGRectValue];
+    
+    // 获取键盘弹出动画时间
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    [animationDurationValue getValue:&animationDuration];
+    CGFloat keyBoardHeight = keyboardRect.size.height ; //键盘高度
+    self.y = KmainScreenHeiht - self.height - keyBoardHeight ;
+    
+}
+
+/**  键盘隐藏   */
+- (void)keyboardWillHide:(NSNotification *)notification {
+    
+    // 获取通知信息字典
+    NSDictionary* userInfo = [notification userInfo];
+    
+    // 获取键盘隐藏动画时间
+    NSValue *animationDurationValue = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval animationDuration;
+    [animationDurationValue getValue:&animationDuration];
+    
+    if (!self.switchingKeybaord) {
+        self.y = _keyBoardY ;
+    }
+}
+
+/**  表情被选中了   */
+- (void)emotionDidSelect:(NSNotification *)notification
+{
+    XCEmotionModel *emotion = notification.userInfo[XC_SelectEmotionKey];
+//    XCLog(@"emotion.chs = %@" ,emotion.chs);
+    XC_EmotionTextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+//    inputTextView.text = [NSString stringWithFormat:@"%@%@",inputTextView.text,emotion.chs];
+    [inputTextView insertEmotion:emotion];
+}
+
+/**   删除  */
+-(void)emotionDelete
+{
+    XC_EmotionTextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+    [inputTextView deleteBackward];
+}
+
 
 -(void)layoutSubviews
 {
@@ -174,11 +252,64 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
 //点击按钮 触发代理
 - (void)btnClick:(UIButton *)btn
 {
+    XC_EmotionTextView *textview = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+
+    //事件代理出去，
     if ([self.delegate respondsToSelector:@selector(composeToolbar:didClickButton:)]) {
         [self.delegate composeToolbar:self didClickButton:btn.tag];
     }
 
+    switch (btn.tag) {
+        case XC_ComposeToolbarButtonTypeEmotion:
+            //表情
+            [self switchKeyboard];
+            break;
+        case XC_ComposeToolbarButtonTypeMention:
+            //@
+            [self endEditing:YES];
+            
+            break;
+        case XC_ComposeToolbarButtonTypeSend:
+            //发送
+            textview.text = @"";
+            [self endEditing:YES];
+            break;
+        default:
+            break;
+    }
 }
+
+//切换键盘
+-(void)switchKeyboard
+{
+    XC_EmotionTextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+    // _xc_textView.inputView == nil : 使用的是系统自带的键盘
+    if (inputTextView.inputView == nil) { // 切换为自定义的表情键盘
+        inputTextView.inputView = self.emotionKeyboard;
+        
+        // 显示键盘按钮
+        self.showKeyboardButton = YES;
+    } else { // 切换为系统自带的键盘
+        inputTextView.inputView = nil;
+        // 显示表情按钮
+        self.showKeyboardButton = NO;
+    }
+    
+    // 开始切换键盘
+    self.switchingKeybaord = YES;
+    
+    // 退出键盘
+    [inputTextView endEditing:YES];
+    
+    // 结束切换键盘
+    self.switchingKeybaord = NO;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 弹出键盘
+        [inputTextView becomeFirstResponder];
+    });
+}
+
 
 -(void)drawRect:(CGRect)rect
 {
@@ -198,12 +329,20 @@ CGFloat inputHeight = 34 ;//输入框的默认高度
     [path addLineToPoint:CGPointMake(self.size.width, 0)];
     //    [path addLineToPoint:CGPointMake(100, 180)];
     [[UIColor lightGrayColor] setStroke];
-
     //4 ,把路径添加到上下文
     CGContextAddPath(ctx, path.CGPath);
     //5 , 渲染上下文 stroke描边
     CGContextStrokePath(ctx);
 }
+
+- (void)dealloc{
+   
+    [XCNotificationCenter removeObserver:self name:XC_EmotionDidSelectNotification object:nil];
+    [XCNotificationCenter removeObserver:self name:XC_EmotionDidDeleteNotification object:nil];
+    [XCNotificationCenter removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [XCNotificationCenter removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 
 @end
 

@@ -19,4 +19,11 @@
  */
 +(NSAttributedString *)attributedTextWithText:(NSString *)text;
 
+/*  普通文字 计算高度  **/
++(CGFloat)autoHeightWithString:(NSString *)string Width:(CGFloat)width Font:(NSInteger)font ;
+
+/**  富文本计算高度   */
++(CGFloat )autoHeightWithAttrebutString:(NSAttributedString *)attributStr AndscreenWidth:(CGFloat)screenWidth;
+
+
 @end

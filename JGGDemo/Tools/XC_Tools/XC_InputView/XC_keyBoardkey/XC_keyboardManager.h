@@ -21,12 +21,12 @@ typedef NS_ENUM(NSInteger,XC_ComposeToolbarButtonType){
 @class XC_keyboardManager;
 @protocol XCComposeToolbarTopDelegate <NSObject>
 
-@optional
 
+@optional
 /*  通过代理传递此view 和点击的按钮   **/
 - (void)composeToolbar:(XC_keyboardManager *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType;
-
 @end
+
 
 @interface XC_keyboardManager : UIView
 

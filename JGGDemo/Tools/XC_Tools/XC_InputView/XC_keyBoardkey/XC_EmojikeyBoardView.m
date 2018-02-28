@@ -155,10 +155,9 @@
 #pragma mark - scrollViewDelegate 动态切换tabbar
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    double pageNo = scrollView.contentOffset.x / scrollView.width;
-    //    self.pageControl.currentPage = (int)(pageNo + 0.5);
-    [self.emojiTabar switchemotion:(int)(pageNo + 0.5)];
     
+    double pageNo = scrollView.contentOffset.x / scrollView.width;
+    [self.emojiTabar switchemotion:(int)(pageNo + 0.5)];
 }
 
 #pragma mark XCEmotionTabBarDelegate  点击tabbar 的表情
@@ -231,7 +230,7 @@
     }];
     
     
-    self.scrollView.contentSize = CGSizeMake(self.emojiTabar.dataSource.count  * self.scrollView.width, 0);
+    self.scrollView.contentSize = CGSizeMake(self.emojiTabar.dataSource.count  * KmainScreenWidth, 0);
 }
 
 @end
