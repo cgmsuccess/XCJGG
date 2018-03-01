@@ -31,8 +31,15 @@
 {
     // 1.删除按钮
     UIButton *deleteButton = [[UIButton alloc] init];
-    [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
-    [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+    UIImage *highlimage =  GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", @"compose_emotion_delete_highlighted");
+   
+    UIImage *image =  GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", @"compose_emotion_delete");
+
+    [deleteButton setImage:highlimage forState:UIControlStateHighlighted];
+    
+    [deleteButton setImage:image forState:UIControlStateNormal];
+
+    
     [deleteButton addTarget:self action:@selector(deleteClick) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:deleteButton];
     self.deleteButton = deleteButton;

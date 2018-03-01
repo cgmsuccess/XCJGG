@@ -35,14 +35,17 @@
         // 当只有1页时，自动隐藏pageControl
         pageControl.hidesForSinglePage = YES;
         pageControl.userInteractionEnabled = NO;
+       
+        UIImage *Image = GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", @"compose_keyboard_dot_normal");
+        UIImage *currentImage = GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", @"compose_keyboard_dot_selected");
+
         // 设置内部的圆点图片
-        [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];
-        [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKeyPath:@"currentPageImage"];
+        [pageControl setValue:Image forKeyPath:@"pageImage"];
+        [pageControl setValue:currentImage forKeyPath:@"currentPageImage"];
+        
         [self addSubview:pageControl];
         self.pageControl = pageControl;
-        
-        
-        
+                
     }
     return self;
 }

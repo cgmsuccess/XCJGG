@@ -1,15 +1,13 @@
 //
-//  XC_ keyboardTopTools.m
-//  zhutong
+//  XC_EmotionInputView.m
+//  JGGDemo
 //
-//  Created by gao bin on 2018/2/6.
-//  Copyright © 2018年 com.xc.zhutong. All rights reserved.
+//  Created by gao bin on 2018/3/1.
+//  Copyright © 2018年 apple. All rights reserved.
 //
 
-#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
+#import "XC_EmotionInputView.h"
 
-
-#import "XC_keyboardManager.h"
 #import "XCEmotionModel.h"
 #import "XC_EmojikeyBoardView.h"
 
@@ -17,7 +15,7 @@
 CGFloat inputHeight = 34 ;//输入框的默认高度
 CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 
-@interface XC_keyboardManager()
+@interface XC_EmotionInputView()
 
 @property (nonatomic, weak) UIButton *emotionButton;
 
@@ -27,22 +25,13 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 /** 是否正在切换键盘 */
 @property (nonatomic, assign) BOOL switchingKeybaord;
 
-/**    记录初始化的时候y 值      ****/
-@property (nonatomic,assign)CGFloat keyBoardY ;
 
 @end
 
-@implementation XC_keyboardManager
 
-+(instancetype)singLationKeyBoardManager
-{
-    static XC_keyboardManager* keyBoard = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-       keyBoard = [[XC_keyboardManager alloc] init];
-    });
-    return keyBoard ;
-}
+@implementation XC_EmotionInputView
+
+
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -68,26 +57,28 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 
 -(void)setUI
 {
+ 
+    
     //创建切换键盘
     self.emotionButton = [self setupBtn:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" type:XC_ComposeToolbarButtonTypeEmotion Andtitle:@""] ;
     
     //创建@
     [self setupBtn:@"compose_mentionbutton_background" highImage:@"compose_mentionbutton_background_highlighted" type:XC_ComposeToolbarButtonTypeMention Andtitle:@""];
-   
+    
     //创建发送
     [self setupBtn:@"nil" highImage:@"nil" type:XC_ComposeToolbarButtonTypeSend Andtitle:@"发送"];
     
     XC_EmotionTextView *inputTextView = [[XC_EmotionTextView alloc] init];
     inputTextView.tag = XC_ComposeToolbarButtonTypeInputView ;
     [inputTextView addBorder:[UIColor lightGrayColor] Andcircular:15];
-
-   
+    
+    
     /**   监听表情被选中  */
     [XCNotificationCenter addObserver:self selector:@selector(emotionDidSelect:) name:XC_EmotionDidSelectNotification object:nil];
     
     /**  键盘弹出   */
     [XCNotificationCenter  addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-   
+    
     /**   键盘隐藏  */
     [XCNotificationCenter  addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
@@ -95,10 +86,14 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
     [XCNotificationCenter  addObserver:self selector:@selector(emotionDelete) name:XC_EmotionDidDeleteNotification object:nil];
     
     _keyBoardY = self.y ;
+
+    XCLog(@"_keyBoardY = %lf",_keyBoardY) ;
     
     [self addSubview:inputTextView];
-
+    
 }
+
+
 
 /**
  * 创建一个按钮
@@ -106,8 +101,12 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 - (UIButton *)setupBtn:(NSString *)image highImage:(NSString *)highImage type:(XC_ComposeToolbarButtonType)type Andtitle:(NSString *)title
 {
     UIButton *btn = [[UIButton alloc] init];
-    [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
+    
+    UIImage *_image = GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", image);
+    UIImage *_highImage = GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", highImage);
+
+    [btn setImage:_image forState:UIControlStateNormal];
+    [btn setImage:_highImage forState:UIControlStateHighlighted];
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     btn.tag = type;
     [btn setTitle:title forState:UIControlStateNormal];
@@ -129,9 +128,12 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
         highImage = @"compose_keyboardbutton_background_highlighted";
     }
     
+    UIImage *_image = GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", image);
+    UIImage *_highImage = GETNSbunldINImage(@"XEmotionIcons", @"entionTabarImage", highImage);
+    
     // 设置图片
-    [self.emotionButton setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-    [self.emotionButton setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
+    [self.emotionButton setImage:_image forState:UIControlStateNormal];
+    [self.emotionButton setImage:_highImage forState:UIControlStateHighlighted];
 }
 
 /**  键盘弹出   */
@@ -173,9 +175,9 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 - (void)emotionDidSelect:(NSNotification *)notification
 {
     XCEmotionModel *emotion = notification.userInfo[XC_SelectEmotionKey];
-//    XCLog(@"emotion.chs = %@" ,emotion.chs);
+    //    XCLog(@"emotion.chs = %@" ,emotion.chs);
     XC_EmotionTextView *inputTextView = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
-//    inputTextView.text = [NSString stringWithFormat:@"%@%@",inputTextView.text,emotion.chs];
+    //    inputTextView.text = [NSString stringWithFormat:@"%@%@",inputTextView.text,emotion.chs];
     [inputTextView insertEmotion:emotion];
 }
 
@@ -252,7 +254,7 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 
 /*   计算高度  **/
 - (CGFloat)autoHeightWithString:(NSString *)string Width:(CGFloat)width Font:(NSInteger)font {
-
+    
     CGSize size = [string boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size;
     return size.height;
 }
@@ -261,12 +263,12 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 - (void)btnClick:(UIButton *)btn
 {
     XC_EmotionTextView *textview = [self viewWithTag:XC_ComposeToolbarButtonTypeInputView];
-
+    
     //事件代理出去，
     if ([self.delegate respondsToSelector:@selector(composeToolbar:didClickButton:)]) {
         [self.delegate composeToolbar:self didClickButton:btn.tag];
     }
-
+    
     switch (btn.tag) {
         case XC_ComposeToolbarButtonTypeEmotion:
             //表情
@@ -344,7 +346,7 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 }
 
 - (void)dealloc{
-   
+    
     [XCNotificationCenter removeObserver:self name:XC_EmotionDidSelectNotification object:nil];
     [XCNotificationCenter removeObserver:self name:XC_EmotionDidDeleteNotification object:nil];
     [XCNotificationCenter removeObserver:self name:UIKeyboardWillShowNotification object:nil];
@@ -353,4 +355,3 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 
 
 @end
-

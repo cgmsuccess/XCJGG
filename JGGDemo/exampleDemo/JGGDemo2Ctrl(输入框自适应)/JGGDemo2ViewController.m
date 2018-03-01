@@ -13,17 +13,20 @@
 #import "XCEmotionTool.h"
 #import "XCWordChangeTool.h"
 
-
 @interface JGGDemo2ViewController ()<UITextViewDelegate,XCComposeToolbarTopDelegate,UITableViewDataSource,UITableViewDelegate>
 
-/**   键盘     ****/
-@property (nonatomic,strong)XC_keyboardManager *keyBaord;
+/**   键盘管理     ****/
+@property (nonatomic,strong)XC_keyboardManager *keyBaordManager;
+
 
 /**     UITableView     ****/
 @property (nonatomic,strong)UITableView *tableView ;
 
 /**     DataSource     ****/
 @property (nonatomic,strong)NSMutableArray *DataSource;
+
+
+
 
 @end
 
@@ -56,40 +59,38 @@
     self.view.backgroundColor = [UIColor whiteColor];
 
     [self setUI];
-    [self.keyBaord showXCKeyboard];
+//    [self.keyBaord showXCKeyboard];
 }
 
 
 
 -(void)setUI
 {
+    self.keyBaordManager = [XC_keyboardManager singLationMananger];
     
-    self.keyBaord = [[XC_keyboardManager alloc] initWithFrame:CGRectMake(0, KmainScreenHeiht,  KmainScreenWidth, 106)];
+    XC_EmotionInputView *xcemtionInputView  =  self.keyBaordManager.getXC_EmotionInputView ;
     
-    self.keyBaord.showKeyboardButton = YES ;
-    self.keyBaord.delegate = self ;
-    self.keyBaord.backgroundColor = [UIColor yellowColor];
-    self.keyBaord.stringAndHeightHandle = ^(NSString *inputString, CGFloat height) {
+    xcemtionInputView.frame =  CGRectMake(0, KmainScreenHeiht - 106,  KmainScreenWidth, 106);
+    xcemtionInputView.showKeyboardButton = YES ;
+    xcemtionInputView.keyBoardY = KmainScreenHeiht - 106 ; //一定要设置
+    xcemtionInputView.delegate = self ;
+    xcemtionInputView.backgroundColor = [UIColor yellowColor];
+    xcemtionInputView.stringAndHeightHandle = ^(NSString *inputString, CGFloat height) {
         
     };
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     [self.view addSubview:self.tableView];
-    [self.view addSubview:self.keyBaord];
+    [self.view addSubview:xcemtionInputView];
 }
 
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    
-}
 
 #pragma mark XCComposeToolbarTopDelegate
-
--(void)composeToolbar:(XC_keyboardManager *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType
+-(void)composeToolbar:(XC_EmotionInputView *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType
 {
     switch (buttonType) {
         case XC_ComposeToolbarButtonTypeMention:
             //@
+            XCLog(@"点击了@");
             [self.view endEditing:YES];
 
             break;
@@ -103,16 +104,17 @@
 }
 
 /**  发送消息   */
--(void)sendMassge:(XC_keyboardManager *)keyboardView
+-(void)sendMassge:(XC_EmotionInputView *)keyboardView
 {
-    XC_EmotionTextView *emtionsTextView = [keyboardView viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+    //获取到输入框
+    XC_EmotionTextView *emtionsTextView = [self.keyBaordManager.getXC_EmotionInputView viewWithTag:XC_ComposeToolbarButtonTypeInputView];
+  
     XCLog(@"emtionsTextView.text = %@" , [emtionsTextView fullText]);
+    
     [self.DataSource addObject:[emtionsTextView fullText]];
   
-    
     //插入列表中
     NSMutableArray *indexPaths = [[NSMutableArray alloc]init];
-
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.DataSource.count - 1 inSection:0];
     NSIndexPath *scrollIndexPath = [NSIndexPath indexPathForRow:self.DataSource.count - 1 inSection:0];
     [indexPaths addObject:indexPath];
@@ -154,7 +156,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //唤起键盘。
-    [self.keyBaord showXCKeyboard];
+    [self.keyBaordManager.getXC_EmotionInputView showXCKeyboard];
 
 }
 
