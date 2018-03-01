@@ -464,10 +464,10 @@
 		2408A1DE202ECFBA0000EF74 /* XC_keyBoardkey */ = {
 			isa = PBXGroup;
 			children = (
-				241D1E8420303DAD00B7C0D2 /* XC_EmotionTextView.h */,
-				241D1E8520303DAD00B7C0D2 /* XC_EmotionTextView.m */,
 				2408A1E4202ECFBA0000EF74 /* XC_keyboardManager.h */,
 				2408A1EC202ECFBA0000EF74 /* XC_keyboardManager.m */,
+				241D1E8420303DAD00B7C0D2 /* XC_EmotionTextView.h */,
+				241D1E8520303DAD00B7C0D2 /* XC_EmotionTextView.m */,
 				2408A1E1202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.h */,
 				2408A1E8202ECFBA0000EF74 /* XC_EmojiTabarCollectionViewCell.m */,
 				2408A1E6202ECFBA0000EF74 /* XC_EmojikeyTabbar.h */,

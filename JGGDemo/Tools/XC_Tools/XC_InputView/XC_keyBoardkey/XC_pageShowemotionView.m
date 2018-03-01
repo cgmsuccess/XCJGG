@@ -7,7 +7,7 @@
 //
 
 #import "XC_pageShowemotionView.h"
-
+#import "XCEmotionTool.h"
 @interface XC_pageShowemotionView()
 
 /** 删除按钮 */
@@ -37,8 +37,6 @@
     [self addSubview:deleteButton];
     self.deleteButton = deleteButton;
     
-    // 2.添加长按手势
-    [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPageView:)]];
 }
 
 
@@ -110,6 +108,7 @@
  */
 - (void)selectEmotion:(XCEmotionModel *)emotion
 {
+    [XCEmotionTool addRecentEmotion:emotion ]; //插入此表情到最新使用表情的沙盒里面
     
     // 发出通知
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];

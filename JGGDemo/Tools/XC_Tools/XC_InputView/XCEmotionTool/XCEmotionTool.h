@@ -16,6 +16,8 @@
 
 @interface XCEmotionTool : NSObject
 
+/**  最近使用的表情数据   */
++ (NSArray *)recentEmotions;
 
 /*  默认表情模型   **/
 + (NSArray *)defaultEmotions;
@@ -28,6 +30,9 @@
 
 /**  根据模型获取到单独的某一个表情图片   */
 +(UIImage *)getSelectEmtionImage:(XCEmotionModel *)emtionModel;
+
+/**  插入此表情模型到沙盒里面   */
++ (void)addRecentEmotion:(XCEmotionModel *)emotion;
 
 /**
  *  通过 表情描述找到对应的 表情模型

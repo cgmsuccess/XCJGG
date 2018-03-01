@@ -88,10 +88,6 @@
 -(void)composeToolbar:(XC_keyboardManager *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType
 {
     switch (buttonType) {
-        case XC_ComposeToolbarButtonTypeEmotion:
-            //表情
-//            [self switchKeyboard];
-            break;
         case XC_ComposeToolbarButtonTypeMention:
             //@
             [self.view endEditing:YES];
@@ -157,6 +153,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //唤起键盘。
     [self.keyBaord showXCKeyboard];
 
 }

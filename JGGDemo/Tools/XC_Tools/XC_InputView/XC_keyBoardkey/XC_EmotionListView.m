@@ -40,6 +40,9 @@
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKeyPath:@"currentPageImage"];
         [self addSubview:pageControl];
         self.pageControl = pageControl;
+        
+        
+        
     }
     return self;
 }
@@ -56,6 +59,9 @@
     // 1.设置页数
     self.pageControl.numberOfPages = count;
     //    self.pageControl.numberOfPages = count > 1? count : 0;
+    
+    
+    XCLog(@"EmotionArrs = %@" ,EmotionArrs);
     
     // 2.创建用来显示每一页表情的控件
     for (int i = 0; i<count; i++) {
@@ -107,6 +113,8 @@
     self.scrollView.contentSize = CGSizeMake(count * self.scrollView.width, 0);
     
 }
+
+
 
 
 #pragma mark - scrollViewDelegate

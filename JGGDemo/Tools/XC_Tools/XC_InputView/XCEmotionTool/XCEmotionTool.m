@@ -9,11 +9,53 @@
 #import "XCEmotionTool.h"
 #import "XCEmotionModel.h"
 
+// 最近使用表情的存储路径
+#define XCRecentEmotionsPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"emotions.archive"]
+
+
 @implementation XCEmotionTool
 
-static NSArray  *_defaultEmotions , *_lxhEmotions , *_qqEmtions;
+static NSMutableArray   *_recentEmotions;
+
+/** 最近使用的表情  */
++ (void)initialize
+{
+    // 解档读取此目录下是否有数据
+    _recentEmotions = [NSKeyedUnarchiver unarchiveObjectWithFile:XCRecentEmotionsPath];
+    if (_recentEmotions == nil) {
+        
+        _recentEmotions = [NSMutableArray array];
+    }
+}
 
 
++ (void)addRecentEmotion:(XCEmotionModel *)emotion
+{
+    // 删除重复的表情
+    [_recentEmotions removeObject:emotion];
+    
+    // 将表情放到数组的最前面
+    [_recentEmotions insertObject:emotion atIndex:0];
+    
+    if (_recentEmotions.count > 20) {
+        [_recentEmotions removeLastObject];
+    }
+    
+    // 将所有的表情数据写入沙盒
+    [NSKeyedArchiver archiveRootObject:_recentEmotions toFile:XCRecentEmotionsPath];
+}
+
+/**
+ *  返回装着HWEmotion模型的数组
+ */
++ (NSArray *)recentEmotions
+{
+    return _recentEmotions;
+}
+
+
+
+static NSArray  *_defaultEmotions , *_lxhEmotions , *_qqEmtions ;
 /*  默认表情数据   **/
 + (NSArray *)defaultEmotions
 {

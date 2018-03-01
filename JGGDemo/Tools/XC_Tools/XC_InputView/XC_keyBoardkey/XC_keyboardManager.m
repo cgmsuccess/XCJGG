@@ -34,7 +34,15 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 
 @implementation XC_keyboardManager
 
-
++(instancetype)singLationKeyBoardManager
+{
+    static XC_keyboardManager* keyBoard = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+       keyBoard = [[XC_keyboardManager alloc] init];
+    });
+    return keyBoard ;
+}
 
 -(instancetype)initWithFrame:(CGRect)frame
 {

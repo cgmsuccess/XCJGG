@@ -57,14 +57,6 @@
     return self;
 }
 
-/**  最近使用的表情内容   */
--(XC_EmotionListView *)recentListView
-{
-    if (!_recentListView) {
-        _recentListView = [[XC_EmotionListView alloc] init];
-    }
-    return _recentListView ;
-}
 
 /*   切换表情的 tababr  **/
 -(XC_EmojikeyTabbar *)emojiTabar
@@ -85,6 +77,16 @@
     return _defaultListView;
 }
 
+
+/**  最近使用的表情内容   */
+-(XC_EmotionListView *)recentListView
+{
+    if (!_recentListView) {
+        _recentListView = [[XC_EmotionListView alloc] init];
+        _recentListView.EmotionArrs = [XCEmotionTool recentEmotions];
+    }
+    return _recentListView ;
+}
 
 #warning DOTO 这里设置了异步读取图片数据，有几率照常，键盘的图片为空
 /**   浪小花表情  */
@@ -150,6 +152,15 @@
     
     [self.scrollView addSubview:self.qqListView];
     self.qqListView.backgroundColor = [UIColor clearColor];
+    
+    [XCNotificationCenter addObserver:self selector:@selector(emotionDidSelect) name:XC_EmotionDidSelectNotification object:nil];
+
+}
+
+/**   表情选中通知  */
+-(void)emotionDidSelect
+{
+    self.recentListView.EmotionArrs = [XCEmotionTool recentEmotions];
 }
 
 #pragma mark - scrollViewDelegate 动态切换tabbar
@@ -203,6 +214,14 @@
         make.left.offset(0);
         make.right.offset(0);
         make.bottom.equalTo(self.emojiTabar.mas_top).offset(0);
+    }];
+    
+    //最近使用表情
+    [self.recentListView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(0);
+        make.left.offset(KmainScreenWidth * XC_EmojikeyTabbarCilckTypeRecent);
+        make.bottom.equalTo(self.emojiTabar.mas_top).offset(0);
+        make.width.mas_equalTo(KmainScreenWidth);
     }];
     
     //默认的表情内容

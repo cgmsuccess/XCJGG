@@ -39,6 +39,9 @@ typedef NS_ENUM(NSInteger,XC_ComposeToolbarButtonType){
 /**    实时回调，输入的文字，和需要的高度      ****/
 @property (nonatomic,copy)void(^stringAndHeightHandle)(NSString *inputString,CGFloat height);
 
+/**  单利，创建   */
++(instancetype)singLationKeyBoardManager;
+
 /*  设置为 输入框为第一响应者  ,返回输入框 **/
 -(XC_EmotionTextView *)showXCKeyboard;
 
