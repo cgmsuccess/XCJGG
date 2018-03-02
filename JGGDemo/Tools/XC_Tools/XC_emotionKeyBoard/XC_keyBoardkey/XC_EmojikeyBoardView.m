@@ -57,6 +57,16 @@
     return self;
 }
 
++(instancetype)shareKeyBoardManager
+{
+    static dispatch_once_t onceToken;
+    static XC_EmojikeyBoardView *emtionsKeyBoard = nil;
+    dispatch_once(&onceToken, ^{
+        emtionsKeyBoard = [[[self class] alloc] init];
+    });
+    return emtionsKeyBoard;
+}
+
 
 /*   切换表情的 tababr  **/
 -(XC_EmojikeyTabbar *)emojiTabar
@@ -95,9 +105,6 @@
     if (!_lxhListView) {
         _lxhListView = [[XC_EmotionListView alloc] init];
         _lxhListView.EmotionArrs = [XCEmotionTool lxhEmtions];
-
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        });
     }
     return _lxhListView;
 }
@@ -109,8 +116,6 @@
         _qqListView = [[XC_EmotionListView alloc] init];
         _qqListView.EmotionArrs = [XCEmotionTool qqEmtions];
 
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        });
     }
     return _qqListView;
 }

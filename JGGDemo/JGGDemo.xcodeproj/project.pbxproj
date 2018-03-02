@@ -57,6 +57,8 @@
 		244DA86F202B0DAA003328D2 /* XEmotionIcons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 244DA86E202B0DAA003328D2 /* XEmotionIcons.bundle */; };
 		244E5EA82047A9B900AAF415 /* XC_EmotionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E5EA72047A9B900AAF415 /* XC_EmotionInputView.m */; };
 		244E5EAB2047CF9700AAF415 /* XC_EmotionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E5EAA2047CF9700AAF415 /* XC_EmotionsView.m */; };
+		244E5EAE2047E74F00AAF415 /* XC_EmotionToolTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E5EAD2047E74F00AAF415 /* XC_EmotionToolTabbar.m */; };
+		244E5EB22047EBD700AAF415 /* JGGDemo3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E5EB12047EBD700AAF415 /* JGGDemo3ViewController.m */; };
 		24BDE16B204156D00035C7AD /* XC_NSTextEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */; };
 		24BDE16E20415FF80035C7AD /* UITextView+XCextention.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDE16D20415FF80035C7AD /* UITextView+XCextention.m */; };
 		24BDE171204163330035C7AD /* XC_TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BDE16F204163320035C7AD /* XC_TextView.m */; };
@@ -190,6 +192,10 @@
 		244E5EA72047A9B900AAF415 /* XC_EmotionInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XC_EmotionInputView.m; sourceTree = "<group>"; };
 		244E5EA92047CF9700AAF415 /* XC_EmotionsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XC_EmotionsView.h; sourceTree = "<group>"; };
 		244E5EAA2047CF9700AAF415 /* XC_EmotionsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XC_EmotionsView.m; sourceTree = "<group>"; };
+		244E5EAC2047E74F00AAF415 /* XC_EmotionToolTabbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XC_EmotionToolTabbar.h; sourceTree = "<group>"; };
+		244E5EAD2047E74F00AAF415 /* XC_EmotionToolTabbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XC_EmotionToolTabbar.m; sourceTree = "<group>"; };
+		244E5EB02047EBD700AAF415 /* JGGDemo3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGGDemo3ViewController.h; sourceTree = "<group>"; };
+		244E5EB12047EBD700AAF415 /* JGGDemo3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGGDemo3ViewController.m; sourceTree = "<group>"; };
 		24BDE169204156CF0035C7AD /* XC_NSTextEmotionAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XC_NSTextEmotionAttachment.h; sourceTree = "<group>"; };
 		24BDE16A204156D00035C7AD /* XC_NSTextEmotionAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XC_NSTextEmotionAttachment.m; sourceTree = "<group>"; };
 		24BDE16C20415FF80035C7AD /* UITextView+XCextention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+XCextention.h"; sourceTree = "<group>"; };
@@ -253,7 +259,8 @@
 		18102DA31FE7CE5200AFD76A /* exampleDemo */ = {
 			isa = PBXGroup;
 			children = (
-				F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(输入框自适应) */,
+				244E5EAF2047EBC000AAF415 /* JGGDemo3Ctrl(表情键盘1) */,
+				F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(表情键盘) */,
 				18389CFC1FE8BD4A009DFCC1 /* JGGDemo1Ctrl(输入框) */,
 				18102DE11FE7D00500AFD76A /* JGGDemoCtrl(九宫格demo) */,
 			);
@@ -457,9 +464,9 @@
 		1867CF921FEA071500AE7F15 /* XC_emotionKeyBoard */ = {
 			isa = PBXGroup;
 			children = (
-				244E5EA52047A78A00AAF415 /* XC_EmotionDefaultView */,
 				2443721520439D87002620AE /* RegexKitLite */,
 				241D1E8820303FE500B7C0D2 /* XC_Category */,
+				244E5EA52047A78A00AAF415 /* XC_EmotionDefaultView */,
 				2408A1DE202ECFBA0000EF74 /* XC_keyBoardkey */,
 				2424EEA4202D807500BD28E6 /* XCEmotionModel */,
 				2424EEA0202D804500BD28E6 /* XCEmotionTool */,
@@ -494,6 +501,8 @@
 		241D1E8820303FE500B7C0D2 /* XC_Category */ = {
 			isa = PBXGroup;
 			children = (
+				244E5EAC2047E74F00AAF415 /* XC_EmotionToolTabbar.h */,
+				244E5EAD2047E74F00AAF415 /* XC_EmotionToolTabbar.m */,
 				24BDE170204163330035C7AD /* XC_TextView.h */,
 				24BDE16F204163320035C7AD /* XC_TextView.m */,
 				24BDE16C20415FF80035C7AD /* UITextView+XCextention.h */,
@@ -548,14 +557,23 @@
 			path = XC_EmotionDefaultView;
 			sourceTree = "<group>";
 		};
-		F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(输入框自适应) */ = {
+		244E5EAF2047EBC000AAF415 /* JGGDemo3Ctrl(表情键盘1) */ = {
+			isa = PBXGroup;
+			children = (
+				244E5EB02047EBD700AAF415 /* JGGDemo3ViewController.h */,
+				244E5EB12047EBD700AAF415 /* JGGDemo3ViewController.m */,
+			);
+			path = "JGGDemo3Ctrl(表情键盘1)";
+			sourceTree = "<group>";
+		};
+		F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(表情键盘) */ = {
 			isa = PBXGroup;
 			children = (
 				F75B00CD1FECE8C6003AA045 /* JGGDemo2ViewController.h */,
 				F75B00CE1FECE8C6003AA045 /* JGGDemo2ViewController.m */,
 			);
-			name = "JGGDemo2Ctrl(输入框自适应)";
-			path = "exampleDemo/JGGDemo2Ctrl(输入框自适应)";
+			name = "JGGDemo2Ctrl(表情键盘)";
+			path = "exampleDemo/JGGDemo2Ctrl(表情键盘)";
 			sourceTree = SOURCE_ROOT;
 		};
 		F75B00D01FED01E3003AA045 /* Masonry */ = {
@@ -736,6 +754,7 @@
 			files = (
 				18102DDB1FE7CF1900AFD76A /* UIView+Frame.m in Sources */,
 				2408A1F6202ECFBA0000EF74 /* XC_EmojikeyTabbar.m in Sources */,
+				244E5EB22047EBD700AAF415 /* JGGDemo3ViewController.m in Sources */,
 				2408A1F3202ECFBA0000EF74 /* XC_pageShowemotionView.m in Sources */,
 				18102DCE1FE7CEA000AFD76A /* SDWebImageManager.m in Sources */,
 				18102DC91FE7CEA000AFD76A /* SDImageCache.m in Sources */,
@@ -757,6 +776,7 @@
 				2424EEA3202D804500BD28E6 /* XCEmotionTool.m in Sources */,
 				18102DD01FE7CEA000AFD76A /* UIButton+WebCache.m in Sources */,
 				18102DC81FE7CEA000AFD76A /* NSData+ImageContentType.m in Sources */,
+				244E5EAE2047E74F00AAF415 /* XC_EmotionToolTabbar.m in Sources */,
 				18389D041FE8C441009DFCC1 /* NSString+Helper.m in Sources */,
 				244E5EA82047A9B900AAF415 /* XC_EmotionInputView.m in Sources */,
 				F75B00F01FED01E3003AA045 /* MASViewAttribute.m in Sources */,

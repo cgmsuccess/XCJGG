@@ -7,11 +7,9 @@
 //
 
 #import "JGGDemo2ViewController.h"
-#import "XC_TextView.h"
 #import "XC_keyboardManager.h"
-#import "XC_EmojikeyBoardView.h"
-#import "XCEmotionTool.h"
-#import "XCWordChangeTool.h"
+
+
 
 @interface JGGDemo2ViewController ()<UITextViewDelegate,XCComposeToolbarTopDelegate,UITableViewDataSource,UITableViewDelegate>
 
@@ -66,9 +64,10 @@
 
 -(void)setUI
 {
-    self.keyBaordManager = [XC_keyboardManager singLationMananger];
+    self.keyBaordManager = [XC_keyboardManager new];
     
     XC_EmotionInputView *xcemtionInputView  =  self.keyBaordManager.getXC_EmotionInputView ;
+    
     
     xcemtionInputView.frame =  CGRectMake(0, KmainScreenHeiht - 106,  KmainScreenWidth, 106);
     xcemtionInputView.showKeyboardButton = YES ;
@@ -161,7 +160,10 @@
 }
 
 
-
+-(void)dealloc
+{
+    XCLog(@"%@",NSStringFromClass([self class]));
+}
 
 
 - (void)didReceiveMemoryWarning {

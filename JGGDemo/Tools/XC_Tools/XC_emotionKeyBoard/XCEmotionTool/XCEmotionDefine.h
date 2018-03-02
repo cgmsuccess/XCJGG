@@ -20,6 +20,9 @@ extern NSString * const XC_SelectEmotionNotification;
 /**  选中某个表情的Key   */
 extern NSString * const XC_SelectEmotionKey;
 
+extern CGFloat inputHeight ;//输入框的默认高度
+extern CGFloat keyboardHeight ; //默认的键盘的高度
+
 
 
 /**  表情底部tabbar 选中的颜色   */
@@ -29,7 +32,7 @@ extern NSString * const XC_SelectEmotionKey;
 /**  通知中心   */
 #define XCNotificationCenter  [NSNotificationCenter defaultCenter]
 
-
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
 
 
 //////////////////////////////获取指定NSBundle下面的图片文件\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

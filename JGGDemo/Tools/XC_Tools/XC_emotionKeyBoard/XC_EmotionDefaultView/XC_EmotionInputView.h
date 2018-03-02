@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "XC_EmotionTextView.h"
-#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
+
 
 typedef NS_ENUM(NSInteger,XC_ComposeToolbarButtonType){
     XC_ComposeToolbarButtonTypeEmotion = 0, // 表情

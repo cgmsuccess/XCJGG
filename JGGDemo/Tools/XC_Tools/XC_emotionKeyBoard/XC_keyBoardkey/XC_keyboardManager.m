@@ -10,26 +10,20 @@
 
 #import "XC_keyboardManager.h"
 
+
+
 @interface XC_keyboardManager()
 
 /**    XC_EmotionInputView    默认的表情键盘输入  ****/
 @property (nonatomic,strong)XC_EmotionInputView  *defaultInputView;
 
+/**      已经处理好了的表情键盘输入     ****/
+@property (nonatomic,strong)XC_EmotionsView *emotionsStyletwo;
 
 @end
 
 @implementation XC_keyboardManager
 
-
-+(instancetype)singLationMananger
-{
-    static dispatch_once_t onceToken;
-    static XC_keyboardManager *manager = nil;
-    dispatch_once(&onceToken, ^{
-        manager = [[[self class] alloc] init];
-    });
-    return manager ;
-}
 
 -(XC_EmotionInputView *)defaultInputView
 {
@@ -39,9 +33,22 @@
     return _defaultInputView ;
 }
 
+-(XC_EmotionsView *)emotionsStyletwo
+{
+    if (!_emotionsStyletwo) {
+        _emotionsStyletwo = [[XC_EmotionsView alloc] init];
+    }
+    return _emotionsStyletwo;
+}
+
 -(XC_EmotionInputView *)getXC_EmotionInputView
 {
     return self.defaultInputView;
+}
+
+-(XC_EmotionsView *)getXC_emotionsView
+{
+    return self.emotionsStyletwo;
 }
 
 @end

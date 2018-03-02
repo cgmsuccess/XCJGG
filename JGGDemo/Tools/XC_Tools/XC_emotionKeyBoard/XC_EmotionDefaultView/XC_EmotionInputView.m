@@ -12,8 +12,7 @@
 #import "XC_EmojikeyBoardView.h"
 
 
-CGFloat inputHeight = 34 ;//输入框的默认高度
-CGFloat keyboardHeight = 216 ; //默认的键盘的高度
+
 
 @interface XC_EmotionInputView()
 
@@ -45,11 +44,11 @@ CGFloat keyboardHeight = 216 ; //默认的键盘的高度
 -(XC_EmojikeyBoardView *)emotionKeyboard
 {
     if (!_emotionKeyboard) {
-        self.emotionKeyboard = [[XC_EmojikeyBoardView alloc] init];
+        _emotionKeyboard = [XC_EmojikeyBoardView shareKeyBoardManager];
         // 键盘的宽度
-        self.emotionKeyboard.width = KmainScreenWidth;
-        self.emotionKeyboard.height = keyboardHeight;
-        self.emotionKeyboard.backgroundColor = [UIColor whiteColor];
+        _emotionKeyboard.width = KmainScreenWidth;
+        _emotionKeyboard.height = keyboardHeight;
+        _emotionKeyboard.backgroundColor = [UIColor whiteColor];
     }
     return _emotionKeyboard;
 }

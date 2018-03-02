@@ -11,3 +11,6 @@ NSString * const XC_SelectEmotionNotification = @"XC_SelectEmotionNotification";
 
 //删除某个表情。存入通知userInfo字典的key
 NSString * const XC_SelectEmotionKey = @"XC_DeleteEmotionKey";
+
+CGFloat inputHeight = 34 ;//输入框的默认高度
+CGFloat keyboardHeight = 216 ; //默认的键盘的高度

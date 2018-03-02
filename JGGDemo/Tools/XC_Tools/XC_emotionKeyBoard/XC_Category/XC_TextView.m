@@ -138,7 +138,7 @@ NSInteger maxInput = MAXFLOAT ;
         } else { // 有高亮选择的字符串，则暂不对文字进行统计和限制
             
             //XCLog(@"11111111111111========      %@",position);
-            self.inputTextHandle(self.text);
+                self.inputTextHandle(self.text);
         }
     } else {
         
