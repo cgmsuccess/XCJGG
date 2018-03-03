@@ -5,9 +5,8 @@
 <h1>JGG的简单demo和基本使用</h1>
 
 <h1>简单的效果图</h1>
-<img src = "http://upload-images.jianshu.io/upload_images/2018474-ae7e255d725fa365.gif?imageMogr2/auto-orient/strip" width="320" >效果图</img>
+<img src="http://upload-images.jianshu.io/upload_images/2018474-ae7e255d725fa365.gif" alt="image" style="max-width:100%;">
+
  
 
-
-    <li>简单的写一下，以后再想到什么在更新新的功能吧</li>
 
