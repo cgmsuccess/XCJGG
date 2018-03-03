@@ -5,7 +5,7 @@
 <h1>JGG的简单demo和基本使用</h1>
 
 <h1>简单的效果图</h1>
-<img src = "https://github.com/cgmsuccess/XCJGG/blob/master/test.gif">效果图</ima>
+<img src = "http://upload-images.jianshu.io/upload_images/2018474-ae7e255d725fa365.gif?imageMogr2/auto-orient/strip">效果图</ima>
  
 
 
