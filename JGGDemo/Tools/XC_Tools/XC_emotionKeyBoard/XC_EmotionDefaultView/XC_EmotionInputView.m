@@ -151,6 +151,10 @@
     [animationDurationValue getValue:&animationDuration];
     CGFloat keyBoardHeight = keyboardRect.size.height ; //键盘高度
     self.y = KmainScreenHeiht - self.height - keyBoardHeight ;
+    //键盘显示高度
+    if ([self.delegate respondsToSelector:@selector(showKwyboradViewHeight:)]) {
+        [self.delegate showKwyboradViewHeight:(self.height + keyBoardHeight)];
+    }
     
 }
 
@@ -167,8 +171,15 @@
     
     if (!self.switchingKeybaord) {
         self.y = _keyBoardY ;
+        
+        if ([self.delegate respondsToSelector:@selector(hideKeyBoardView)]) {
+            [self.delegate hideKeyBoardView];
+        }
     }
+   
 }
+
+
 
 /**  表情被选中了   */
 - (void)emotionDidSelect:(NSNotification *)notification
@@ -322,11 +333,12 @@
 
 -(void)drawRect:(CGRect)rect
 {
-    [self drawLine];
+    [self drawTopLine];
+    [self drawBottomLine];
 }
 
 //画顶部直线
--(void)drawLine
+-(void)drawTopLine
 {
     //1 , 获取上下文 以后获取上下文直接用 UIGraphics
     CGContextRef ctx = UIGraphicsGetCurrentContext();
@@ -336,6 +348,25 @@
     [path moveToPoint:CGPointMake(0, 0)];
     //添加一条线到某个点
     [path addLineToPoint:CGPointMake(self.size.width, 0)];
+    //    [path addLineToPoint:CGPointMake(100, 180)];
+    [[UIColor lightGrayColor] setStroke];
+    //4 ,把路径添加到上下文
+    CGContextAddPath(ctx, path.CGPath);
+    //5 , 渲染上下文 stroke描边
+    CGContextStrokePath(ctx);
+}
+
+//画底部直线
+-(void)drawBottomLine
+{
+    //1 , 获取上下文 以后获取上下文直接用 UIGraphics
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    //2 , 设置绘图信息（拼接路径）
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    //3 , 设置起点
+    [path moveToPoint:CGPointMake(0, self.size.height)];
+    //添加一条线到某个点
+    [path addLineToPoint:CGPointMake(self.size.width, self.size.height)];
     //    [path addLineToPoint:CGPointMake(100, 180)];
     [[UIColor lightGrayColor] setStroke];
     //4 ,把路径添加到上下文

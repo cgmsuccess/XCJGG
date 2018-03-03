@@ -25,6 +25,13 @@ typedef NS_ENUM(NSInteger,XC_ComposeToolbarButtonType){
 @optional
 /*  通过代理传递此view 和点击的按钮   **/
 - (void)composeToolbar:(XC_EmotionInputView *)toolbar didClickButton:(XC_ComposeToolbarButtonType)buttonType;
+
+/**   显示键盘的时候，键盘的高度  */
+-(void)showKwyboradViewHeight:(CGFloat)keyboardHeight;
+
+/**  收键盘   */
+-(void)hideKeyBoardView;
+
 @end
 
 @interface XC_EmotionInputView : UIView

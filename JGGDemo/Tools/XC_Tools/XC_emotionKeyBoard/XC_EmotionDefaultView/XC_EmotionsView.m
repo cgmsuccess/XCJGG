@@ -135,6 +135,8 @@
     CGFloat keyBoardHeight = keyboardRect.size.height ; //键盘高度
     
     self.topTababrView.y  = KmainScreenHeiht - self.topTababrView.height - keyBoardHeight ;
+    
+   
 }
 
 /**  键盘隐藏   */
@@ -211,20 +213,11 @@
 
 - (void)composeToolbar:(XC_EmotionToolTabbar *)toolbar didClickButton:(XCTababrComposeToolbarType)buttonType
 {
+    if ([self.delegate respondsToSelector:@selector(composeToolbarCilck:didClickButton:)]) {
+        [self.delegate composeToolbarCilck:toolbar didClickButton:buttonType];
+    }
+    
     switch (buttonType) {
-        case XCTababrComposeToolbarButtonTypeCamera: //拍照
-            
-            break;
-        case XCTababrComposeToolbarButtonTypePicture: // 相册
-            
-            break;
-         case XCTababrComposeToolbarButtonTypeMention: //@
-            
-            break;
-            
-        case  XCTababrComposeToolbarButtonTypeTrend: // #
-            break;
-            
         case  XCTababrComposeToolbarButtonTypeEmotion:// 表情:
             XCLog(@"表情");
             [self switchKeyboard];
@@ -232,6 +225,11 @@
         default:
             break;
     }
+}
+
+-(void)XC_emotionBecomeFirstResponder
+{
+    [self.emotionTextview becomeFirstResponder];
 }
 
 - (void)dealloc{

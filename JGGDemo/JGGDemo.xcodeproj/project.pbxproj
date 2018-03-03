@@ -51,6 +51,7 @@
 		241D1E8620303DAD00B7C0D2 /* XC_EmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 241D1E8520303DAD00B7C0D2 /* XC_EmotionTextView.m */; };
 		2424EEA3202D804500BD28E6 /* XCEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424EEA1202D804500BD28E6 /* XCEmotionTool.m */; };
 		2424EEA9202D9CFF00BD28E6 /* XCEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424EEA8202D9CFF00BD28E6 /* XCEmotionModel.m */; };
+		243D14B520491FF9007923D5 /* JGGDemo4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243D14B420491FF9007923D5 /* JGGDemo4ViewController.m */; };
 		2443721820439D87002620AE /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2443721720439D87002620AE /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2443721B2043A378002620AE /* XCWordChangeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2443721A2043A378002620AE /* XCWordChangeTool.m */; };
 		2443721E2043AA8E002620AE /* XCtextExchangeAttachModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2443721D2043AA8E002620AE /* XCtextExchangeAttachModel.m */; };
@@ -181,6 +182,8 @@
 		2424EEA2202D804500BD28E6 /* XCEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCEmotionTool.h; sourceTree = "<group>"; };
 		2424EEA7202D9CFF00BD28E6 /* XCEmotionModel.h */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = XCEmotionModel.h; sourceTree = "<group>"; };
 		2424EEA8202D9CFF00BD28E6 /* XCEmotionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCEmotionModel.m; sourceTree = "<group>"; };
+		243D14B320491FF9007923D5 /* JGGDemo4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGGDemo4ViewController.h; sourceTree = "<group>"; };
+		243D14B420491FF9007923D5 /* JGGDemo4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGGDemo4ViewController.m; sourceTree = "<group>"; };
 		2443721620439D87002620AE /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		2443721720439D87002620AE /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		244372192043A378002620AE /* XCWordChangeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCWordChangeTool.h; sourceTree = "<group>"; };
@@ -259,6 +262,7 @@
 		18102DA31FE7CE5200AFD76A /* exampleDemo */ = {
 			isa = PBXGroup;
 			children = (
+				243D14B22049032B007923D5 /* JGGDemo4Ctrl(表情键盘2) */,
 				244E5EAF2047EBC000AAF415 /* JGGDemo3Ctrl(表情键盘1) */,
 				F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(表情键盘) */,
 				18389CFC1FE8BD4A009DFCC1 /* JGGDemo1Ctrl(输入框) */,
@@ -339,8 +343,8 @@
 		18102DDC1FE7CFE600AFD76A /* XC_Tools */ = {
 			isa = PBXGroup;
 			children = (
-				F75B00F11FED05AA003AA045 /* XC_AutotextView */,
 				1867CF921FEA071500AE7F15 /* XC_emotionKeyBoard */,
+				F75B00F11FED05AA003AA045 /* XC_AutotextView */,
 				18102DDD1FE7CFE600AFD76A /* XC_JGGView */,
 			);
 			path = XC_Tools;
@@ -535,6 +539,15 @@
 				2443721D2043AA8E002620AE /* XCtextExchangeAttachModel.m */,
 			);
 			path = XCEmotionModel;
+			sourceTree = "<group>";
+		};
+		243D14B22049032B007923D5 /* JGGDemo4Ctrl(表情键盘2) */ = {
+			isa = PBXGroup;
+			children = (
+				243D14B320491FF9007923D5 /* JGGDemo4ViewController.h */,
+				243D14B420491FF9007923D5 /* JGGDemo4ViewController.m */,
+			);
+			path = "JGGDemo4Ctrl(表情键盘2)";
 			sourceTree = "<group>";
 		};
 		2443721520439D87002620AE /* RegexKitLite */ = {
@@ -791,6 +804,7 @@
 				F75B00EA1FED01E3003AA045 /* MASConstraintMaker.m in Sources */,
 				F75B00EB1FED01E3003AA045 /* MASLayoutConstraint.m in Sources */,
 				2408A1AB202ECCC60000EF74 /* XCEmotionDefine.m in Sources */,
+				243D14B520491FF9007923D5 /* JGGDemo4ViewController.m in Sources */,
 				2443721E2043AA8E002620AE /* XCtextExchangeAttachModel.m in Sources */,
 				F75B00ED1FED01E3003AA045 /* View+MASAdditions.m in Sources */,
 				18102DD51FE7CEA000AFD76A /* UIImageView+WebCache.m in Sources */,

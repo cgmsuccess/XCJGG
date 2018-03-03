@@ -7,12 +7,9 @@
 //
 
 #import "JGGDemo3ViewController.h"
-//#import "XC_EmotionToolTabbar.h"
-//#import "XC_EmotionsView.h"
-//#import "XCWordChangeTool.h"
 #import "XC_keyboardManager.h"
 
-@interface JGGDemo3ViewController ()
+@interface JGGDemo3ViewController ()<XC_emotionViewDelegate>
 {
     XC_EmotionsView *inputEmtion;
     UILabel *label;
@@ -31,7 +28,12 @@
     // Do any additional setup after loading the view.
     
     inputEmtion = [[XC_keyboardManager new] getXC_emotionsView];
+    //一定要设置
     inputEmtion.rectFrame = CGRectMake(0, 0, KmainScreenWidth, 200);
+    //设置为第一响应者
+    [inputEmtion XC_emotionBecomeFirstResponder];
+    inputEmtion.delegate = self;
+    
     [self.view addSubview:inputEmtion];
     
     
@@ -54,10 +56,34 @@
     
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+
+
+-(void)composeToolbarCilck:(XC_EmotionToolTabbar *)toolbar didClickButton:(XCTababrComposeToolbarType)buttonType
 {
-    [self.view endEditing:YES];
+    switch (buttonType) {
+        case XCTababrComposeToolbarButtonTypeCamera: //拍照
+            XCLog(@"拍照");
+            break;
+        case XCTababrComposeToolbarButtonTypePicture: // 相册
+            XCLog(@"相册");
+            break;
+        case XCTababrComposeToolbarButtonTypeMention: //@
+            XCLog(@"@");
+            break;
+            
+        case  XCTababrComposeToolbarButtonTypeTrend: // #
+            XCLog(@"#");
+            break;
+            
+        case  XCTababrComposeToolbarButtonTypeEmotion:// 表情:
+            XCLog(@"表情");
+            break;
+        default:
+            break;
+    }
+
 }
+
 
 
 - (void)didReceiveMemoryWarning {
