@@ -40,6 +40,8 @@
 		184328E31FC81C1D00BB4D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184328E11FC81C1D00BB4D84 /* LaunchScreen.storyboard */; };
 		184328EE1FC81C1D00BB4D84 /* JGGDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328ED1FC81C1D00BB4D84 /* JGGDemoTests.m */; };
 		184328F91FC81C1D00BB4D84 /* JGGDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 184328F81FC81C1D00BB4D84 /* JGGDemoUITests.m */; };
+		2407A05E204A6B5F0052CDB0 /* JGGDemo5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2407A05D204A6B5F0052CDB0 /* JGGDemo5ViewController.m */; };
+		2407A061204A8C5F0052CDB0 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2407A060204A8C5F0052CDB0 /* libicucore.tbd */; settings = {ATTRIBUTES = (Required, ); }; };
 		2408A1AB202ECCC60000EF74 /* XCEmotionDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1AA202ECCC60000EF74 /* XCEmotionDefine.m */; };
 		2408A1EF202ECFBA0000EF74 /* XC_EmojikeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1E2202ECFBA0000EF74 /* XC_EmojikeyBoardView.m */; };
 		2408A1F1202ECFBA0000EF74 /* XC_EmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2408A1E7202ECFBA0000EF74 /* XC_EmotionButton.m */; };
@@ -160,6 +162,9 @@
 		184328F41FC81C1D00BB4D84 /* JGGDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JGGDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		184328F81FC81C1D00BB4D84 /* JGGDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGGDemoUITests.m; sourceTree = "<group>"; };
 		184328FA1FC81C1D00BB4D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2407A05C204A6B5F0052CDB0 /* JGGDemo5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGGDemo5ViewController.h; sourceTree = "<group>"; };
+		2407A05D204A6B5F0052CDB0 /* JGGDemo5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGGDemo5ViewController.m; sourceTree = "<group>"; };
+		2407A060204A8C5F0052CDB0 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		2408A1A9202ECCC60000EF74 /* XCEmotionDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCEmotionDefine.h; sourceTree = "<group>"; };
 		2408A1AA202ECCC60000EF74 /* XCEmotionDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCEmotionDefine.m; sourceTree = "<group>"; };
 		2408A1DF202ECFBA0000EF74 /* XC_EmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_EmotionButton.h; sourceTree = "<group>"; };
@@ -239,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2407A061204A8C5F0052CDB0 /* libicucore.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +268,7 @@
 		18102DA31FE7CE5200AFD76A /* exampleDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2407A05B204A67F00052CDB0 /* JDDDemo5Ctrl(正则) */,
 				243D14B22049032B007923D5 /* JGGDemo4Ctrl(表情键盘2) */,
 				244E5EAF2047EBC000AAF415 /* JGGDemo3Ctrl(表情键盘1) */,
 				F75B00CC1FECE7D6003AA045 /* JGGDemo2Ctrl(表情键盘) */,
@@ -409,6 +416,7 @@
 				184328EC1FC81C1D00BB4D84 /* JGGDemoTests */,
 				184328F71FC81C1D00BB4D84 /* JGGDemoUITests */,
 				184328D11FC81C1D00BB4D84 /* Products */,
+				2407A05F204A8C5F0052CDB0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -477,6 +485,23 @@
 				244DA86E202B0DAA003328D2 /* XEmotionIcons.bundle */,
 			);
 			path = XC_emotionKeyBoard;
+			sourceTree = "<group>";
+		};
+		2407A05B204A67F00052CDB0 /* JDDDemo5Ctrl(正则) */ = {
+			isa = PBXGroup;
+			children = (
+				2407A05C204A6B5F0052CDB0 /* JGGDemo5ViewController.h */,
+				2407A05D204A6B5F0052CDB0 /* JGGDemo5ViewController.m */,
+			);
+			path = "JDDDemo5Ctrl(正则)";
+			sourceTree = "<group>";
+		};
+		2407A05F204A8C5F0052CDB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2407A060204A8C5F0052CDB0 /* libicucore.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2408A1DE202ECFBA0000EF74 /* XC_keyBoardkey */ = {
@@ -793,6 +818,7 @@
 				18389D041FE8C441009DFCC1 /* NSString+Helper.m in Sources */,
 				244E5EA82047A9B900AAF415 /* XC_EmotionInputView.m in Sources */,
 				F75B00F01FED01E3003AA045 /* MASViewAttribute.m in Sources */,
+				2407A05E204A6B5F0052CDB0 /* JGGDemo5ViewController.m in Sources */,
 				18102DCF1FE7CEA000AFD76A /* SDWebImagePrefetcher.m in Sources */,
 				18102DCC1FE7CEA000AFD76A /* SDWebImageDownloader.m in Sources */,
 				24BDE171204163330035C7AD /* XC_TextView.m in Sources */,
