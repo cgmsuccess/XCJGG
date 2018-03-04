@@ -34,6 +34,11 @@
     NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
     NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern];
     
+    /**
+     这里替换表情。时间上是，用正则把特殊的和非特殊的字符串取出来，然后根据  loaction 位置进行排序。在重新拼接成为
+     一个新的属性字符串。这样 不会因为替换表情等，导致实际长度的不准确，
+     **/
+    
 
     // 遍历所有的特殊字符串
     NSMutableArray *parts = [NSMutableArray array];
@@ -95,6 +100,7 @@
                 substr = [[NSAttributedString alloc] initWithString:part.text];
             }
         } else if (part.special) { // 非表情的特殊文字
+          
             substr = [[NSAttributedString alloc] initWithString:part.text attributes:@{
                                                                                        NSForegroundColorAttributeName : [UIColor redColor]
                                                                                        }];
