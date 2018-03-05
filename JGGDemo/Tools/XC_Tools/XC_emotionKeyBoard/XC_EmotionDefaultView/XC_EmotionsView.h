@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XC_EmotionTextView.h"
 
 #import "XC_EmotionToolTabbar.h"
 
@@ -33,9 +34,12 @@
 @property (nonatomic,weak)id<XC_emotionViewDelegate> delegate ;
 
 /**  设置为第一响应者   */
--(void)XC_emotionBecomeFirstResponder;
+-(XC_EmotionTextView *)XC_emotionBecomeFirstResponder;
 
 /**  获得输入的文字   */
 -(NSString *)getInputWord;
+
+/**   获取输入框  */
+-(XC_EmotionTextView *)getXC_EmotionTextView;
 
 @end

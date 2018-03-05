@@ -13,6 +13,7 @@
 {
     XC_EmotionsView *inputEmtion;
     UILabel *label;
+    XC_EmotionTextView *emotionTextView;
 }
 @end
 
@@ -33,6 +34,8 @@
     //设置为第一响应者
     [inputEmtion XC_emotionBecomeFirstResponder];
     inputEmtion.delegate = self;
+    
+    emotionTextView =  [inputEmtion getXC_EmotionTextView];
     
     [self.view addSubview:inputEmtion];
     
@@ -73,6 +76,16 @@
             
         case  XCTababrComposeToolbarButtonTypeTrend: // #
             XCLog(@"#");
+            [emotionTextView insertText:@"##"];
+            NSRange range;
+            
+           
+            range.location =  emotionTextView.text.length - 1 ;;
+            
+            range.length = 0;
+            
+            emotionTextView.selectedRange = range;
+            
             break;
             
         case  XCTababrComposeToolbarButtonTypeEmotion:// 表情:

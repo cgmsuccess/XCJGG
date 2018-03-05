@@ -8,7 +8,6 @@
 
 #import "XC_EmotionsView.h"
 #import "XC_EmojikeyBoardView.h"
-#import "XC_EmotionTextView.h"
 
 
 
@@ -226,10 +225,15 @@
             break;
     }
 }
+-(XC_EmotionTextView *)getXC_EmotionTextView
+{
+    return self.emotionTextview;
+}
 
--(void)XC_emotionBecomeFirstResponder
+-(XC_EmotionTextView *)XC_emotionBecomeFirstResponder
 {
     [self.emotionTextview becomeFirstResponder];
+    return self.emotionTextview;
 }
 
 - (void)dealloc{
