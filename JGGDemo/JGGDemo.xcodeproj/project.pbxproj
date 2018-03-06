@@ -66,6 +66,7 @@
 		241F4E07204E7468007B24CC /* XCtextExchangeAttachModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F4DEB204E7468007B24CC /* XCtextExchangeAttachModel.m */; };
 		241F4E08204E7468007B24CC /* XC_EmotionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F4DEE204E7468007B24CC /* XC_EmotionsView.m */; };
 		241F4E09204E7468007B24CC /* XC_EmotionInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F4DF0204E7468007B24CC /* XC_EmotionInputView.m */; };
+		241F4EFB204E8042007B24CC /* JGGDemo6ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 241F4EFA204E8042007B24CC /* JGGDemo6ViewController.m */; };
 		243D14B520491FF9007923D5 /* JGGDemo4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243D14B420491FF9007923D5 /* JGGDemo4ViewController.m */; };
 		244E5EB22047EBD700AAF415 /* JGGDemo3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E5EB12047EBD700AAF415 /* JGGDemo3ViewController.m */; };
 		F75B00CF1FECE8C6003AA045 /* JGGDemo2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75B00CE1FECE8C6003AA045 /* JGGDemo2ViewController.m */; };
@@ -214,6 +215,8 @@
 		241F4DF0204E7468007B24CC /* XC_EmotionInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XC_EmotionInputView.m; sourceTree = "<group>"; };
 		241F4DF1204E7468007B24CC /* XC_EmotionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_EmotionsView.h; sourceTree = "<group>"; };
 		241F4E0A204E751A007B24CC /* XC_EmojikeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XC_EmojikeyBoardView.h; sourceTree = "<group>"; };
+		241F4EF9204E8042007B24CC /* JGGDemo6ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGGDemo6ViewController.h; sourceTree = "<group>"; };
+		241F4EFA204E8042007B24CC /* JGGDemo6ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGGDemo6ViewController.m; sourceTree = "<group>"; };
 		243D14B320491FF9007923D5 /* JGGDemo4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGGDemo4ViewController.h; sourceTree = "<group>"; };
 		243D14B420491FF9007923D5 /* JGGDemo4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGGDemo4ViewController.m; sourceTree = "<group>"; };
 		244E5EB02047EBD700AAF415 /* JGGDemo3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JGGDemo3ViewController.h; sourceTree = "<group>"; };
@@ -276,6 +279,7 @@
 		18102DA31FE7CE5200AFD76A /* exampleDemo */ = {
 			isa = PBXGroup;
 			children = (
+				241F4EF8204E8021007B24CC /* JGGDemo6Ctrl(快速创建表情键盘) */,
 				2407A05B204A67F00052CDB0 /* JDDDemo5Ctrl(正则) */,
 				243D14B22049032B007923D5 /* JGGDemo4Ctrl(表情键盘2) */,
 				244E5EAF2047EBC000AAF415 /* JGGDemo3Ctrl(表情键盘1) */,
@@ -537,23 +541,23 @@
 		241F4DC9204E7468007B24CC /* XC_keyBoardkey */ = {
 			isa = PBXGroup;
 			children = (
-				241F4DCA204E7468007B24CC /* XC_EmotionTextView.h */,
 				241F4DCB204E7468007B24CC /* XC_keyboardManager.h */,
-				241F4E0A204E751A007B24CC /* XC_EmojikeyBoardView.h */,
-				241F4DCC204E7468007B24CC /* XC_EmotionButton.h */,
-				241F4DCD204E7468007B24CC /* XC_pageShowemotionView.h */,
-				241F4DCE204E7468007B24CC /* XC_EmojiTabarCollectionViewCell.h */,
-				241F4DCF204E7468007B24CC /* XC_EmojikeyBoardView.m */,
-				241F4DD0204E7468007B24CC /* XC_touchTextview.h */,
-				241F4DD1204E7468007B24CC /* XC_EmotionListView.h */,
-				241F4DD2204E7468007B24CC /* XC_EmojikeyTabbar.h */,
-				241F4DD3204E7468007B24CC /* XC_EmotionButton.m */,
 				241F4DD4204E7468007B24CC /* XC_keyboardManager.m */,
+				241F4DCA204E7468007B24CC /* XC_EmotionTextView.h */,
 				241F4DD5204E7468007B24CC /* XC_EmotionTextView.m */,
-				241F4DD6204E7468007B24CC /* XC_EmojiTabarCollectionViewCell.m */,
+				241F4E0A204E751A007B24CC /* XC_EmojikeyBoardView.h */,
+				241F4DCF204E7468007B24CC /* XC_EmojikeyBoardView.m */,
+				241F4DCC204E7468007B24CC /* XC_EmotionButton.h */,
+				241F4DD3204E7468007B24CC /* XC_EmotionButton.m */,
+				241F4DCD204E7468007B24CC /* XC_pageShowemotionView.h */,
 				241F4DD7204E7468007B24CC /* XC_pageShowemotionView.m */,
+				241F4DCE204E7468007B24CC /* XC_EmojiTabarCollectionViewCell.h */,
+				241F4DD6204E7468007B24CC /* XC_EmojiTabarCollectionViewCell.m */,
+				241F4DD0204E7468007B24CC /* XC_touchTextview.h */,
 				241F4DD8204E7468007B24CC /* XC_touchTextview.m */,
+				241F4DD1204E7468007B24CC /* XC_EmotionListView.h */,
 				241F4DDA204E7468007B24CC /* XC_EmotionListView.m */,
+				241F4DD2204E7468007B24CC /* XC_EmojikeyTabbar.h */,
 				241F4DDB204E7468007B24CC /* XC_EmojikeyTabbar.m */,
 			);
 			path = XC_keyBoardkey;
@@ -575,11 +579,11 @@
 			isa = PBXGroup;
 			children = (
 				241F4DE7204E7468007B24CC /* XC_NSTextEmotionAttachment.h */,
-				241F4DE8204E7468007B24CC /* XCtextExchangeAttachModel.h */,
-				241F4DE9204E7468007B24CC /* XCEmotionModel.m */,
 				241F4DEA204E7468007B24CC /* XC_NSTextEmotionAttachment.m */,
+				241F4DE8204E7468007B24CC /* XCtextExchangeAttachModel.h */,
 				241F4DEB204E7468007B24CC /* XCtextExchangeAttachModel.m */,
 				241F4DEC204E7468007B24CC /* XCEmotionModel.h */,
+				241F4DE9204E7468007B24CC /* XCEmotionModel.m */,
 			);
 			path = XCEmotionModel;
 			sourceTree = "<group>";
@@ -597,6 +601,15 @@
 				241F4DF0204E7468007B24CC /* XC_EmotionInputView.m */,
 			);
 			path = XC_EmotionDefaultView;
+			sourceTree = "<group>";
+		};
+		241F4EF8204E8021007B24CC /* JGGDemo6Ctrl(快速创建表情键盘) */ = {
+			isa = PBXGroup;
+			children = (
+				241F4EF9204E8042007B24CC /* JGGDemo6ViewController.h */,
+				241F4EFA204E8042007B24CC /* JGGDemo6ViewController.m */,
+			);
+			path = "JGGDemo6Ctrl(快速创建表情键盘)";
 			sourceTree = "<group>";
 		};
 		243D14B22049032B007923D5 /* JGGDemo4Ctrl(表情键盘2) */ = {
@@ -808,6 +821,7 @@
 				241F4DF2204E7468007B24CC /* XCEmotionTool.m in Sources */,
 				244E5EB22047EBD700AAF415 /* JGGDemo3ViewController.m in Sources */,
 				18102DCE1FE7CEA000AFD76A /* SDWebImageManager.m in Sources */,
+				241F4EFB204E8042007B24CC /* JGGDemo6ViewController.m in Sources */,
 				241F4DFA204E7468007B24CC /* XC_EmotionTextView.m in Sources */,
 				18102DC91FE7CEA000AFD76A /* SDImageCache.m in Sources */,
 				F75B00E81FED01E3003AA045 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,

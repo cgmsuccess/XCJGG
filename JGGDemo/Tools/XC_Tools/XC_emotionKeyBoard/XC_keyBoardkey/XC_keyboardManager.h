@@ -16,6 +16,7 @@
 #import "XC_EmotionsView.h"
 #import "XCWordChangeTool.h"
 #import "XCEmotionDefine.h"
+#import "XC_touchTextview.h"
 @interface XC_keyboardManager : NSObject
 
 

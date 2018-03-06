@@ -38,6 +38,19 @@
     return self;
 }
 
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.backgroundColor = [UIColor clearColor];
+        self.editable = NO;
+        self.textContainerInset = UIEdgeInsetsMake(0, -5, 0, -5);
+        // 禁止滚动, 让文字完全显示出来
+        self.scrollEnabled = NO;
+    }
+    return self;
+}
+
 -(void)setCilckHightColor:(UIColor *)cilckHightColor
 {
     _cilckHightColor = cilckHightColor;

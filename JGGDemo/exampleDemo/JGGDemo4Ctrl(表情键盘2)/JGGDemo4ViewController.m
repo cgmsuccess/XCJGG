@@ -76,8 +76,6 @@
     [self.view addSubview:emtionsInputView];
     
     
-    
-    
 }
 
 #pragma mark 

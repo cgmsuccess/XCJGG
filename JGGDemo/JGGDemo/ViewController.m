@@ -59,7 +59,7 @@ NSString * const  syscell = @"syscell";
 
 -(void)getdata
 {
-   NSArray *arr = @[@"XC_JGGView的基本使用JGGDemo",@"UITextfile的简单封装JGGDemo1",@"表情键盘JGGDemo2",@"表情键盘JGGDemo3",@"表情键盘JGGDemo4",@"正则表达式图文混排基础学习JGGDemo5"];
+   NSArray *arr = @[@"XC_JGGView的基本使用JGGDemo",@"UITextfile的简单封装JGGDemo1",@"表情键盘JGGDemo2",@"表情键盘JGGDemo3",@"表情键盘JGGDemo4",@"正则表达式图文混排基础学习JGGDemo5",@"快速创建表情键盘JGGDemo6"];
     
     self.dataSource = [NSMutableArray arrayWithArray:arr];
 }
