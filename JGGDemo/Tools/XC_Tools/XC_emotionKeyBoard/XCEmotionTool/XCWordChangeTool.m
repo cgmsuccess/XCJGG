@@ -11,6 +11,10 @@
 #import "XCtextExchangeAttachModel.h"
 #import "XCEmotionTool.h"
 #import "XCEmotionModel.h"
+#import "XC_touchTextview.h"
+
+
+NSInteger labelFont = 15;
 
 @implementation XCWordChangeTool
 
@@ -42,6 +46,8 @@
 
     // 遍历所有的特殊字符串
     NSMutableArray *parts = [NSMutableArray array];
+    NSMutableArray *specials = [NSMutableArray array];
+
     [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
         if ((*capturedRanges).length == 0) return;
         
@@ -79,7 +85,7 @@
         return NSOrderedAscending;
     }];
     
-    UIFont *font = [UIFont systemFontOfSize:15];
+    UIFont *font = [UIFont systemFontOfSize:labelFont];
     // 按顺序拼接每一段文字
     for (XCtextExchangeAttachModel *part in parts) {
         // 等会需要拼接的子串
@@ -102,8 +108,19 @@
         } else if (part.special) { // 非表情的特殊文字
           
             substr = [[NSAttributedString alloc] initWithString:part.text attributes:@{
-                                                                                       NSForegroundColorAttributeName : [UIColor redColor]
-                                                                                       }];
+                                                                                       NSForegroundColorAttributeName : [UIColor redColor]                                                                                       }];
+
+            
+                                                                                       
+           // 创建特殊对象
+           XCSpecial *s = [[XCSpecial alloc] init];
+           s.text = part.text;
+           NSUInteger loc = attributedText.length;
+           NSUInteger len = part.text.length;
+           s.range = NSMakeRange(loc, len);
+           [specials addObject:s];
+                                                                                       
+                                                                                       
         } else { // 非特殊文字
             substr = [[NSAttributedString alloc] initWithString:part.text];
         }
@@ -112,7 +129,8 @@
     
     // 一定要设置字体,保证计算出来的尺寸是正确的
     [attributedText addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, attributedText.length)];
-    
+    [attributedText addAttribute:@"specials" value:specials range:NSMakeRange(0, 1)];
+
     return attributedText;
 }
 

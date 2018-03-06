@@ -9,10 +9,10 @@
 #import "JGGDemo5ViewController.h"
 #import "RegexKitLite.h"
 #import "XCWordChangeTool.h"
-
-@interface JGGDemo5ViewController ()
+#import "XC_touchTextview.h"
+@interface JGGDemo5ViewController ()<XC_touchTextviewDelegate>
 {
-    UILabel *showLabel ;
+    XC_touchTextview *showLabel ;
 }
 @end
 
@@ -28,12 +28,32 @@
     
 }
 
+-(void)setUI
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+    showLabel  = [[XC_touchTextview alloc] initWithFrame:CGRectMake(0, 100, KmainScreenWidth, 100)];
+    showLabel.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:showLabel];
+    showLabel.cilckHightColor = [UIColor lightGrayColor]; //点击时高亮颜色
+}
+
+
+
 
 //富文本显示表情
 -(void)emtionshow
 {
+    self.navigationController.automaticallyAdjustsScrollViewInsets = NO ;
+    self.automaticallyAdjustsScrollViewInsets = NO ;
     NSString *test = @"ffwfsfds[吃惊]fgood@小米:产品不错，[晕]我喜欢。#小米产品#fsfsfdgoodfs[大笑]fsdfnknkgoodfsfs[晕]#妈妈再也不用担心我的学习#";
-    showLabel.attributedText = [XCWordChangeTool attributedTextWithText:test ];
+    showLabel.attributedText = [XCWordChangeTool attributedTextWithText:test] ;
+    showLabel.cilckdelegate = self ;
+
+}
+
+-(void)cilckOption:(NSString *)cilckString
+{
+    XCLog(@"cilckString = %@" , cilckString);
 }
 
 
@@ -229,20 +249,6 @@
 
 }
 
--(void)setUI
-{
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    showLabel  = [[UILabel alloc] init];
-    showLabel.x = 0 ;
-    showLabel.y = 100 ;
-    showLabel.width = KmainScreenWidth ;
-    showLabel.numberOfLines = 0 ;
-    showLabel.height = 100;
-    [self.view addSubview:showLabel];
-    
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
