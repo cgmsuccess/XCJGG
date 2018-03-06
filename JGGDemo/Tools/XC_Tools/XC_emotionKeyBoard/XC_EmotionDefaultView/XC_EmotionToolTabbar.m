@@ -7,7 +7,7 @@
 //
 
 #import "XC_EmotionToolTabbar.h"
-
+#import "XCEmotionDefine.h"
 @interface XC_EmotionToolTabbar()
 
 @property (nonatomic, weak) UIButton *emotionButton;

@@ -7,7 +7,7 @@
 //
 
 #import "XC_EmojiTabarCollectionViewCell.h"
-
+#import "XCEmotionDefine.h"
 
 @implementation XC_EmojiTabarCollectionViewCell
 

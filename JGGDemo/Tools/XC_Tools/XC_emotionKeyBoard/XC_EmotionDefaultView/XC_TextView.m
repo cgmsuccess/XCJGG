@@ -7,7 +7,8 @@
 // 限制字数参考： http://www.jianshu.com/p/ff1c7c46e084 感谢
 
 #import "XC_TextView.h"
-
+#import "XCEmotionDefine.h"
+#import "XCWordChangeTool.h"
 NSInteger maxInput = MAXFLOAT ;
 
 @interface XC_TextView()
@@ -186,7 +187,7 @@ NSInteger maxInput = MAXFLOAT ;
     self.placeholderLabel.x = _placeHolderOffsetX;
     self.placeholderLabel.y = _placeHolderOffsetY;
     self.placeholderLabel.width = self.width - _placeHolderOffsetX ;
-    self.placeholderLabel.height = [NSString autoHeightWithString:_placeholderString Width:self.width Font:LabelFont];
+    self.placeholderLabel.height = [XCWordChangeTool autoHeightWithString:_placeholderString Width:self.width Font:LabelFont];
     self.placeholderLabel.hidden = self.hasText;
 
 }

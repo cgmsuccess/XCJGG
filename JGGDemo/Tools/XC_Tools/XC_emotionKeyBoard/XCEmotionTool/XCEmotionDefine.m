@@ -1,4 +1,5 @@
 
+#import <UIKit/UIKit.h>
 // 通知
 // 表情选中的通知
 NSString * const XC_EmotionDidSelectNotification = @"XC_EmotionDidSelectNotification";

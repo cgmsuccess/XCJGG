@@ -8,6 +8,7 @@
 
 #import "XC_EmojikeyTabbar.h"
 #import "XC_EmojiTabarCollectionViewCell.h"
+#import "XCEmotionDefine.h"
 
 NSString *xc_emojitabbarCell = @"xc_emojitabbarCell";
 

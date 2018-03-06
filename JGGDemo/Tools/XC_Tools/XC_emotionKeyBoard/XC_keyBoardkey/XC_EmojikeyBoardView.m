@@ -10,7 +10,7 @@
 #import "XC_EmojikeyTabbar.h" // 表情 tabbar
 #import "XC_EmotionListView.h" //表情展示view
 #import "XCEmotionTool.h"
-
+#import "XCEmotionDefine.h"
 @interface XC_EmojikeyBoardView()<XCEmotionTabBarDelegate,UIScrollViewDelegate>
 
 /** 当前显示listView */

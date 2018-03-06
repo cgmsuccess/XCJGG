@@ -8,7 +8,6 @@
 
 #import "XCEmotionTool.h"
 #import "XCEmotionModel.h"
-
 // 最近使用表情的存储路径
 #define XCRecentEmotionsPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"emotions.archive"]
 

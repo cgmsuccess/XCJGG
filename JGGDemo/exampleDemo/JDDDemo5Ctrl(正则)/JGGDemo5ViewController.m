@@ -121,7 +121,7 @@
 }
 
 
-/** 5. RegexKitLite的使用，注意他是mrc，和记载 动态库，添加liccucore */
+/** 5. RegexKitLite的使用，注意他是mrc，和记载 动态库，添加libicucore */
 -(void)regexkit
 {
     NSString *test = @"ffwfsfds[泪奔]fgood@小米:产品不错，我喜欢。#小米产品#fsfsfdgoodfs[大笑]fsdfnknkgoodfsfs[哈哈]#妈妈再也不用担心我的学习#";

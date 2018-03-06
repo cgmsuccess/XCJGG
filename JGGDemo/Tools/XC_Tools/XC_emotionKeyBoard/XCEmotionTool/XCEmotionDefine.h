@@ -24,6 +24,13 @@ extern CGFloat inputHeight ;//输入框的默认高度
 extern CGFloat keyboardHeight ; //默认的键盘的高度
 
 
+/***********屏幕适配*************/
+#define KmainScreenWidth [UIScreen mainScreen].bounds.size.width
+#define KmainScreenHeiht [UIScreen mainScreen].bounds.size.height
+
+#import "UIView+XCFrame.h"
+#import "Masonry.h"
+#import <UIKit/UIKit.h>
 
 /**  表情底部tabbar 选中的颜色   */
 #define EmtionTabarSelectColor [UIColor orangeColor]

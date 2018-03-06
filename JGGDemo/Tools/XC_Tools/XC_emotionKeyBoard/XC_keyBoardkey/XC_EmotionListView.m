@@ -8,6 +8,7 @@
 
 #import "XC_EmotionListView.h"
 #import "XC_pageShowemotionView.h"
+#import "XCEmotionDefine.h"
 @interface XC_EmotionListView()<UIScrollViewDelegate>
 
 @property (nonatomic, weak) UIScrollView *scrollView;

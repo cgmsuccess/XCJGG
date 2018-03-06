@@ -75,6 +75,9 @@
     emtionsInputView.delegate = self;
     [self.view addSubview:emtionsInputView];
     
+    
+    
+    
 }
 
 #pragma mark 

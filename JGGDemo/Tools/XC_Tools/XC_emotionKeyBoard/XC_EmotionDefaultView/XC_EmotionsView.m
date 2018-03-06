@@ -8,7 +8,7 @@
 
 #import "XC_EmotionsView.h"
 #import "XC_EmojikeyBoardView.h"
-
+#import "XCEmotionDefine.h"
 
 
 @interface XC_EmotionsView()<xc_emotionTooltababrDelegate,UITextViewDelegate>

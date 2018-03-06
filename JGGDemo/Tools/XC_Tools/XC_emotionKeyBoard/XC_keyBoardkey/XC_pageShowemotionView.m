@@ -8,6 +8,7 @@
 
 #import "XC_pageShowemotionView.h"
 #import "XCEmotionTool.h"
+#import "XCEmotionDefine.h"
 @interface XC_pageShowemotionView()
 
 /** 删除按钮 */

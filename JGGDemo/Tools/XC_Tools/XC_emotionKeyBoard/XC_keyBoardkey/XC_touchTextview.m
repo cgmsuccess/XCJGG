@@ -7,6 +7,7 @@
 //
 
 #import "XC_touchTextview.h"
+#import "XCEmotionDefine.h"
 #define HWStatusTextViewCoverTag 999
 
 

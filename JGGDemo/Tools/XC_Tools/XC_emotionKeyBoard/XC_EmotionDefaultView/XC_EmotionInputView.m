@@ -10,7 +10,7 @@
 
 #import "XCEmotionModel.h"
 #import "XC_EmojikeyBoardView.h"
-
+#import "XCEmotionDefine.h"
 
 
 
