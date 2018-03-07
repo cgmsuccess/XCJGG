@@ -9,18 +9,18 @@
 ###  此demo参考了小码哥代码。主要在于学习，，内部UI和逻辑已经封装好了 XC_EmotionsView  。XC_EmotionInputView 希望你喜欢，便于快速开发。大神勿喷
 
 
-
-### 键盘的思维导图。大致流程
-
-![屏幕快照 2018-03-06 下午5.31.05.png](http://upload-images.jianshu.io/upload_images/2018474-2d6101ec76f11266.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
 ### 里面涉及的正则学习记录，可以配合demo看
 地址<https://www.jianshu.com/p/32eeb62687e2>
 
 ### 简单的效果图
 
 ![test1.gif](http://upload-images.jianshu.io/upload_images/2018474-a97ea1160f2c2629.gif?imageMogr2/auto-orient/strip)
+
+
+### 键盘的思维导图。大致流程
+
+![屏幕快照 2018-03-06 下午5.31.05.png](http://upload-images.jianshu.io/upload_images/2018474-2d6101ec76f11266.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 ### 使用方法
 直接导入  XC_emotionKeyBoard  文件夹， 表情键盘是 依赖 masonry.h 第三方库，。 使用
