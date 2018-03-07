@@ -549,14 +549,14 @@
 				241F4DCF204E7468007B24CC /* XC_EmojikeyBoardView.m */,
 				241F4DCC204E7468007B24CC /* XC_EmotionButton.h */,
 				241F4DD3204E7468007B24CC /* XC_EmotionButton.m */,
+				241F4DD1204E7468007B24CC /* XC_EmotionListView.h */,
+				241F4DDA204E7468007B24CC /* XC_EmotionListView.m */,
 				241F4DCD204E7468007B24CC /* XC_pageShowemotionView.h */,
 				241F4DD7204E7468007B24CC /* XC_pageShowemotionView.m */,
 				241F4DCE204E7468007B24CC /* XC_EmojiTabarCollectionViewCell.h */,
 				241F4DD6204E7468007B24CC /* XC_EmojiTabarCollectionViewCell.m */,
 				241F4DD0204E7468007B24CC /* XC_touchTextview.h */,
 				241F4DD8204E7468007B24CC /* XC_touchTextview.m */,
-				241F4DD1204E7468007B24CC /* XC_EmotionListView.h */,
-				241F4DDA204E7468007B24CC /* XC_EmotionListView.m */,
 				241F4DD2204E7468007B24CC /* XC_EmojikeyTabbar.h */,
 				241F4DDB204E7468007B24CC /* XC_EmojikeyTabbar.m */,
 			);
@@ -816,6 +816,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				241F4DF6204E7468007B24CC /* RegexKitLite.m in Sources */,
 				18102DDB1FE7CF1900AFD76A /* UIView+Frame.m in Sources */,
 				241F4DFB204E7468007B24CC /* XC_EmojiTabarCollectionViewCell.m in Sources */,
 				241F4DF2204E7468007B24CC /* XCEmotionTool.m in Sources */,
@@ -837,7 +838,6 @@
 				18102DCD1FE7CEA000AFD76A /* SDWebImageDownloaderOperation.m in Sources */,
 				F75B00F41FED05C1003AA045 /* XC_AutoTextView.m in Sources */,
 				18102DD61FE7CEA000AFD76A /* UIView+WebCacheOperation.m in Sources */,
-				241F4DF6204E7468007B24CC /* RegexKitLite.m in Sources */,
 				18389D001FE8BE39009DFCC1 /* JGGDemo1ViewController.m in Sources */,
 				184328DB1FC81C1D00BB4D84 /* ViewController.m in Sources */,
 				F75B00CF1FECE8C6003AA045 /* JGGDemo2ViewController.m in Sources */,
